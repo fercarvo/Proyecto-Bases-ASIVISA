@@ -50,3 +50,10 @@ dificultadFísica varchar (30),
 primary key (idUsuario)
 );
 
+create table Comida(
+idComida int,
+calorias int,
+nombre varchar (20),
+primary key (idComida)
+);
+
