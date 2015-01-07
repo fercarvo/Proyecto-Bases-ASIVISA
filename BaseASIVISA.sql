@@ -57,3 +57,26 @@ nombre varchar (20),
 primary key (idComida)
 );
 
+create table Pago(
+idPago varchar(8),
+fecha date,
+usuario int,
+factura int,
+descripcion varchar (39),
+monto float,
+primary key (idPago)
+);
+
+create table Factura(
+idFactura int,
+fecha date,
+ciudad varchar (10),
+monto float,
+usuario int,
+primary key (idFactura)
+);
+
+create table Membresia(
+idMembresia int,
+usuario int
+);
