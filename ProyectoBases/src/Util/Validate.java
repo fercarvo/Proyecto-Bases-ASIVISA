@@ -10,6 +10,9 @@ package Util;
  */
 public class Validate {
     public static boolean isOnlyAlfa(String name){
+        if(name.isEmpty())
+            return false;
+                    
         char[] chars = name.toCharArray();
 
         for (char c : chars) {
@@ -21,6 +24,9 @@ public class Validate {
     }
 
     public static boolean isOnlyAlfa(String name, int validLength){
+        if(name.isEmpty())
+            return false;
+        
         char[] chars = name.toCharArray();
 
         if(chars.length != validLength)
@@ -37,6 +43,9 @@ public class Validate {
     public static boolean isOnlyNum(String name){
         char[] chars = name.toCharArray();
 
+        if(name.isEmpty())
+            return false;
+        
         for (char c : chars) {
             if(!Character.isDigit(c)) {
                 return false;
@@ -48,6 +57,9 @@ public class Validate {
     public static boolean isOnlyNum(String name, int validLength){
         char[] chars = name.toCharArray();
 
+        if(name.isEmpty())
+            return false;
+        
         if(chars.length != validLength)
             return false;
         
@@ -62,6 +74,9 @@ public class Validate {
     public static boolean isOnlyAlfaNum(String name){
         char[] chars = name.toCharArray();
 
+        if(name.isEmpty())
+            return false;
+        
         for (char c : chars) {
             if(!Character.isLetterOrDigit(c)) {
                 return false;
@@ -73,6 +88,9 @@ public class Validate {
     public static boolean isOnlyAlfaNum(String name, int validLength){
         char[] chars = name.toCharArray();
 
+        if(name.isEmpty())
+            return false;
+        
         if(chars.length != validLength)
             return false;
         
