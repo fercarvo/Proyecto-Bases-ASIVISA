@@ -1,5 +1,6 @@
 
 import InterfacesUsuario.*;
+import Util.*;
 
 /*
  * To change this template, choose Tools | Templates
@@ -10,6 +11,7 @@ import InterfacesUsuario.*;
  *
  * @author Clases
  */
+//
 public class Main {
 
     /**
@@ -17,6 +19,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ConectorBDD conector = new ConectorBDD();
         VtnBienvenido vtn = new VtnBienvenido();
         vtn.setVisible(false);
         vtnAgregarComida vtn2 = new vtnAgregarComida();
