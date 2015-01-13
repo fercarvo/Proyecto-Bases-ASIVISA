@@ -1,6 +1,6 @@
 
+import Clases.Util.ConectorBDD;
 import InterfacesUsuario.*;
-import Util.*;
 
 /*
  * To change this template, choose Tools | Templates

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package InterfacesUsuario;
-import Util.Validate;
+import Clases.Util.Validate;
 import java.awt.CardLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.*;
