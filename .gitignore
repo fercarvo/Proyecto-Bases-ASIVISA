@@ -1,2 +1,12 @@
+/ProyectoBases/nbproject/private/
+/ProyectoBases/build/
+/ProyectoBases/nbbuild/
 /ProyectoBases/dist/
+/ProyectoBases/nbdist/
+/ProyectoBases/nbactions.xml
+/ProyectoBases/nb-configuration.xml
+/ProyectoBases/.nb-gradle/
 *.class
+*.jar
+*.war
+*.ear
