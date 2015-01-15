@@ -6,6 +6,7 @@ package Clases.InterfaceMethods;
 
 import Clases.Util.Messages;
 import Clases.Util.Validate;
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.util.Arrays;
 import javax.swing.*;
@@ -124,8 +125,8 @@ public class CrearUser extends JPanel{
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(this);
+        this.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -138,7 +139,9 @@ public class CrearUser extends JPanel{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        setVisible(true);
+        
+  //      add(lblPrincipal, BorderLayout.PAGE_START);
+    //    add(jPanel2, BorderLayout.CENTER);
     }                       
 
     // Variables declaration - do not modify                     
@@ -192,20 +195,20 @@ public class CrearUser extends JPanel{
         return true;
     }
     private boolean datosVacios(){
-        if( !txtNombre.getText().isEmpty() ) return true;
-        if( !txtApellido.getText().isEmpty() ) return true;
-        if( !txtUsuario.getText().isEmpty() ) return true;
-        if( txtContra.getPassword().length != 0 ) return true;
-        if( txtVerif.getPassword().length != 0 ) return true;
+        if( txtNombre.getText().isEmpty() ) return true;
+        if( txtApellido.getText().isEmpty() ) return true;
+        if( txtUsuario.getText().isEmpty() ) return true;
+        if( txtContra.getPassword().length == 0 ) return true;
+        if( txtVerif.getPassword().length == 0 ) return true;
         
         return false;
     }
     private void mostrarCheckUser(){
-        lblcheck.setDisabledIcon(new ImageIcon(getClass().getResource("/Imagenes/check.png")));
+        lblcheck.setIcon(new ImageIcon(getClass().getResource("/Imagenes/check.png")));
         
     }
     private void mostrarCheckContra(){
-        lblcheck2.setDisabledIcon(new ImageIcon(getClass().getResource("/Imagenes/check.png")));
+        lblcheck2.setIcon(new ImageIcon(getClass().getResource("/Imagenes/check.png")));
         
     }
 }
