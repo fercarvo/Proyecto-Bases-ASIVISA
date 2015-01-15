@@ -23,6 +23,8 @@ public class Main {
         VtnBienvenido vtn = new VtnBienvenido();
         vtn.setVisible(false);
         vtnAgregarComida vtn2 = new vtnAgregarComida();
-        vtn2.setVisible(true);
+        vtn2.setVisible(false);
+        vtnCrearUsuario user = new vtnCrearUsuario(vtn2);
+        user.setVisible(true);
     }
 }

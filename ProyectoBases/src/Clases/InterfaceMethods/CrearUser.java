@@ -6,10 +6,21 @@ package Clases.InterfaceMethods;
 
 import Clases.Util.Messages;
 import Clases.Util.Validate;
+import Clases.Util.imageSize;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import sun.swing.ImageIconUIResource;
 
 /**
  *
@@ -171,7 +182,13 @@ public class CrearUser extends JPanel{
                 if(!Validate.isOnlyAlfa(txtApellido.getText()))
                     Messages.errorMessage("Su apellido tiene numeros o caracteres especiales?");
                 else{
+                try {
                     mostrarCheckUser();
+                } catch (IOException ex) {
+                    Logger.getLogger(CrearUser.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(CrearUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
                     if(!Validate.isOnlyAlfaNum(txtUsuario.getText()))
                         Messages.errorMessage("Solo letras o numeros");
                     else 
@@ -203,12 +220,16 @@ public class CrearUser extends JPanel{
         
         return false;
     }
-    private void mostrarCheckUser(){
-        lblcheck.setIcon(new ImageIcon(getClass().getResource("/Imagenes/check.png")));
+    private void mostrarCheckUser() throws IOException, URISyntaxException{
+        String dir = "../Imagenes/check.png";
+        //getClass().getResource("/Imagenes/check.png");
+        lblcheck.setIcon(imageSize.obtenerImagen(getClass().getResource("/Imagenes/check.png"), new Dimension(25, 25)));
         
     }
     private void mostrarCheckContra(){
-        lblcheck2.setIcon(new ImageIcon(getClass().getResource("/Imagenes/check.png")));
+        String dir = "../Imagenes/check.png";
+        
+        lblcheck2.setIcon(imageSize.obtenerImagen(getClass().getResource("/Imagenes/check.png"), new Dimension(25, 25)));
         
     }
 }
