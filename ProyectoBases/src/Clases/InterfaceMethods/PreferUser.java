@@ -15,6 +15,7 @@ public class PreferUser extends JPanel{
          
      }
      private void initComponents(){
+         int a =15;
          
      }
 }
