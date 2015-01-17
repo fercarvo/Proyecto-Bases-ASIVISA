@@ -4,6 +4,10 @@
  */
 package Clases.Util;
 
+import java.awt.Dimension;
+import java.net.URL;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Clases
@@ -100,5 +104,38 @@ public class Validate {
             }
         }
         return true;        
+    }
+    
+    public static void showCheckIcon(JLabel image, URL path, int tipo){
+        image.setIcon(imageSize.obtenerImagen(path, tipo));
+    }
+    
+    public static void showCheckIcon(JLabel image, URL path, Dimension d){
+        image.setIcon(imageSize.obtenerImagen(path, d));
+    }
+    
+    public static void showCheckIcon(JLabel image, Dimension d){
+        image.setIcon(imageSize.obtenerImagen(Validate.class.getResource("/Imagenes/check.png"), d));
+    }
+    
+    public static void showCheckIcon(JLabel image, int tipo){
+        image.setIcon(imageSize.obtenerImagen(Validate.class.getResource("/Imagenes/check.png"), tipo));
+    }
+    
+    
+    public static void showErrorIcon(JLabel image, URL path, int tipo){
+        image.setIcon(imageSize.obtenerImagen(path, tipo));
+    }
+    
+    public static void showErrorIcon(JLabel image, URL path, Dimension d){
+        image.setIcon(imageSize.obtenerImagen(path, d));
+    }
+    
+    public static void showErrorIcon(JLabel image, Dimension d){
+        image.setIcon(imageSize.obtenerImagen(Validate.class.getResource("/Imagenes/Error.png"), d));
+    }
+    
+    public static void showErrorIcon(JLabel image, int tipo){
+        image.setIcon(imageSize.obtenerImagen(Validate.class.getResource("/Imagenes/Error.png"), tipo));
     }
 }
