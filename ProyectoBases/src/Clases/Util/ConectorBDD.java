@@ -9,13 +9,13 @@ import java.sql.SQLException;
 
 
 public class ConectorBDD {
-    String url; 
-    String dbName;
-    String driver;
-    String userName; 
-    String password;
-    Connection con;
-    Statement st;
+    private String url; 
+    private String dbName;
+    private String driver;
+    private String userName; 
+    private String password;
+    private Connection con;
+    private Statement st;
 
     public ConectorBDD() {
         url = "localhost"; 
@@ -36,10 +36,61 @@ public class ConectorBDD {
    public void desconectar() throws SQLException{
        con.close();
    }
-    
-    
 
+    public String getUrl() {
+        return url;
+    }
 
-    
-    
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDbName() {
+        return dbName;
+    }
+
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Connection getCon() {
+        return con;
+    }
+
+    public void setCon(Connection con) {
+        this.con = con;
+    }
+
+    public Statement getSt() {
+        return st;
+    }
+
+    public void setSt(Statement st) {
+        this.st = st;
+    }
+   
 }
