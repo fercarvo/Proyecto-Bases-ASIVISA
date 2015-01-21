@@ -4,11 +4,15 @@
  */
 package InterfacesAdministrador;
 
+import Clases.Util.ConectorBDD;
+
 /**
  *
  * @author Clases
  */
 public class vtnPrincipalAdm extends javax.swing.JFrame {
+    
+    private ConectorBDD con;
 
     /**
      * Creates new form vtnPrincipalAdm
@@ -38,7 +42,7 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnAgregarADC = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -130,7 +134,6 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(jPanel2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
@@ -153,11 +156,16 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton3);
 
-        jButton4.setText("jButton4");
-        jButton4.setFocusable(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton4);
+        btnAgregarADC.setText("Agregar ADC");
+        btnAgregarADC.setFocusable(false);
+        btnAgregarADC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAgregarADC.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAgregarADC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarADCActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnAgregarADC);
 
         jButton5.setFocusable(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -279,6 +287,10 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAgregarADCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarADCActionPerformed
+        VtnAreaDelCuerpo vtnADC = new VtnAreaDelCuerpo(null, con);
+    }//GEN-LAST:event_btnAgregarADCActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -314,10 +326,10 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarADC;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -361,4 +373,9 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuBtnSalir;
     private javax.swing.JMenuItem mnubtnUndo;
     // End of variables declaration//GEN-END:variables
+    
+    public ConectorBDD getCon(){
+        return this.con;
+    }
+
 }

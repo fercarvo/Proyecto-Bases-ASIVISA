@@ -1,5 +1,6 @@
 
 import Clases.Util.ConectorBDD;
+import InterfacesAdministrador.VtnAreaDelCuerpo;
 import InterfacesUsuario.*;
 
 /*
@@ -25,6 +26,9 @@ public class Main {
         vtnAgregarComida vtn2 = new vtnAgregarComida();
         vtn2.setVisible(false);
         vtnCrearUsuario user = new vtnCrearUsuario(vtn2);
-        user.setVisible(true);
+        user.setVisible(false);
+        VtnAreaDelCuerpo adc = new VtnAreaDelCuerpo(null, conector);
+        
+        adc.setVisible(true);
     }
 }

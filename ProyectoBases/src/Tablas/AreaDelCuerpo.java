@@ -5,6 +5,10 @@
  */
 package Tablas;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 /**
  *
  * @author Juan
@@ -35,6 +39,23 @@ public class AreaDelCuerpo {
         this.nombre = nombre;
     }
     
+    public boolean grabarADC(Connection c, boolean nuevo) {
+        boolean retorno;
+        CallableStatement sp;
+        try {
+            sp = c.prepareCall("grabarADC");
+            sp.setString("nombre", this.nombre);
+            sp.setInt("idADC", this.idADC);
+            sp.setBoolean("nuevo", nuevo);
+            retorno = true;
+            sp.execute();
+        } catch (SQLException e) {
+            System.out.println("Error:\n" + e.getMessage());
+            retorno = false;
+        }
+
+        return retorno;
+    }
     
     
 }
