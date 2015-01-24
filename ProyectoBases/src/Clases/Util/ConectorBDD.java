@@ -18,7 +18,7 @@ public class ConectorBDD {
     private Statement st;
 
     public ConectorBDD() {
-        url = "localhost"; 
+        url = "jdbc:mysql://localhost/BaseASIVISA"; 
         dbName = "BaseASIVISA";
         driver = "com.mysql.jdbc.Driver";
         userName = "root"; 
@@ -30,7 +30,7 @@ public class ConectorBDD {
    public void conectar() throws SQLException{
        
        con = DriverManager.getConnection(url, userName, password);
-       st = (Statement) con.createStatement();
+       //st = (Statement) con.createStatement();
    }
    
    public void desconectar() throws SQLException{

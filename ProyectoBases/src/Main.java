@@ -1,7 +1,9 @@
 
 import Clases.Util.ConectorBDD;
 import InterfacesAdministrador.VtnAreaDelCuerpo;
+import InterfacesAdministrador.VtnComida;
 import InterfacesUsuario.*;
+import java.sql.SQLException;
 
 /*
  * To change this template, choose Tools | Templates
@@ -21,6 +23,11 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         ConectorBDD conector = new ConectorBDD();
+        try {
+            conector.conectar();
+        } catch (SQLException ex) {
+            System.out.println("Error:\n" + ex.getMessage());
+        }        
         VtnBienvenido vtn = new VtnBienvenido();
         vtn.setVisible(false);
         vtnAgregarComida vtn2 = new vtnAgregarComida();
@@ -29,6 +36,8 @@ public class Main {
         user.setVisible(false);
         VtnAreaDelCuerpo adc = new VtnAreaDelCuerpo(null, conector);
         
-        adc.setVisible(true);
+        adc.setVisible(false);
+        VtnComida com = new VtnComida(conector, null);
+        com.setVisible(true);
     }
 }

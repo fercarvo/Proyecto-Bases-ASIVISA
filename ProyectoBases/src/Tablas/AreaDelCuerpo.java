@@ -43,17 +43,16 @@ public class AreaDelCuerpo {
         boolean retorno;
         CallableStatement sp;
         try {
-            sp = c.prepareCall("grabarADC");
-            sp.setString("nombre", this.nombre);
-            sp.setInt("idADC", this.idADC);
-            sp.setBoolean("nuevo", nuevo);
+            sp = c.prepareCall("call grabarADC(?,?,?)");
+            sp.setString(1, this.nombre);
+            sp.setInt(2, this.idADC);
+            sp.setBoolean(3, nuevo);
             retorno = true;
             sp.execute();
         } catch (SQLException e) {
             System.out.println("Error:\n" + e.getMessage());
             retorno = false;
         }
-
         return retorno;
     }
     
