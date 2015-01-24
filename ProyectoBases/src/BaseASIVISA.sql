@@ -1,8 +1,8 @@
-create database BaseASIVISA;
+﻿create database BaseASIVISA;
 use BaseASIVISA;
 
 create table Ejercicio(
-	idEjercicio int auto_increment,
+	idEjercicio int auto_increment not null,
 	nombre varchar (20),
 	descripcion varchar (100),
 	intensidad varchar (8),
@@ -11,14 +11,14 @@ create table Ejercicio(
 );
 
 create table Rutina(
-	idRutina int,
+	idRutina int not null,
 	fechaInicio date,
 	descripcion varchar (50),
 	primary key (idRutina)
 );
 
 create table EjercicioRutina(
-	ejercicio int, 
+	ejercicio int not null, 
 	rutina int,
 	foreign key (ejercicio)
 		references Ejercicio.idEjercicio,
