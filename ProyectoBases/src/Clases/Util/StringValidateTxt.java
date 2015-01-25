@@ -17,19 +17,22 @@ import javax.swing.JTextField;
 public class StringValidateTxt extends FocusAdapter{
     
     private JTextField text;
-    private Component ventana;
     
-    public StringValidateTxt(JTextField text,Component Ventana){
-        this.text = text;
-        this.ventana = Ventana;
+    public StringValidateTxt(){
     }
     
+    public StringValidateTxt(JTextField text){
+        this.text = text;
+    }
     @Override
     public void focusLost(FocusEvent fe) {
+        if ( text == null)
+            text = (JTextField) fe.getSource();
+        
         String textstr = this.text.getText();
         try {
             int i = Integer.parseInt(textstr);
-            JOptionPane.showMessageDialog(ventana, "Ingrese solo cadenas");
+            Messages.errorMessage("Ingrese solo texto sin numeros");
             this.text.setText("");
             this.text.requestFocus();
         } catch (NumberFormatException nfe) {

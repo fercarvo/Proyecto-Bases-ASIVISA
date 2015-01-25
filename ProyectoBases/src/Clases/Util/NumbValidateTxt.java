@@ -15,21 +15,25 @@ import javax.swing.JTextField;
  */
 public class NumbValidateTxt extends FocusAdapter{
     private JTextField text;
-    private Component ventana;
     
-    public NumbValidateTxt(JTextField text,Component Ventana){
+    public NumbValidateTxt(){
+    }
+    
+    public NumbValidateTxt(JTextField text){
         //super(text, FocusEvent.FOCUS_LOST);
         this.text = text;
-        this.ventana = Ventana;
     }
     
     @Override
     public void focusLost(FocusEvent fe) {
+        if ( text == null)
+            text = (JTextField) fe.getSource();
+        
         String textstr = this.text.getText();
         try {
             int i = Integer.parseInt(textstr);
         } catch (NumberFormatException nfe) {
-            JOptionPane.showMessageDialog(ventana, "Ingrese solo numeros");
+            Messages.errorMessage("Ingrese solo numeros");
             text.setText("");
             text.requestFocus();
         }     

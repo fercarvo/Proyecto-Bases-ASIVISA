@@ -53,6 +53,7 @@ public class AreaDelCuerpo {
             System.out.println("Error:\n" + e.getMessage());
             retorno = false;
         }
+
         return retorno;
     }
     

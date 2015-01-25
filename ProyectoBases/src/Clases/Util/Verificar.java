@@ -11,5 +11,4 @@ package Clases.Util;
 public interface Verificar {
     public boolean verificarDatos();
     public boolean datosVacios();
-    
 }

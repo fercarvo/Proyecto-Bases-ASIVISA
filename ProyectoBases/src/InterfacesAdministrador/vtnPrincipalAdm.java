@@ -5,6 +5,9 @@
 package InterfacesAdministrador;
 
 import Clases.Util.ConectorBDD;
+import Imagenes.imageResource;
+import Imagenes.imageSize;
+import java.awt.Dimension;
 
 /**
  *
@@ -13,11 +16,12 @@ import Clases.Util.ConectorBDD;
 public class vtnPrincipalAdm extends javax.swing.JFrame {
     
     private ConectorBDD con;
-
+    private imageResource tamano;
     /**
      * Creates new form vtnPrincipalAdm
      */
     public vtnPrincipalAdm() {
+        tamano = new imageResource();
         initComponents();
     }
 
@@ -30,29 +34,22 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btnAgregarADC = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
+        mnuBtnNuevEjer = new javax.swing.JMenuItem();
+        mnuBtnNuevUsua = new javax.swing.JMenuItem();
+        mnuBtnNuevCom = new javax.swing.JMenuItem();
+        mnuBtnNuevDiet = new javax.swing.JMenuItem();
+        mnuBtnNuevRut = new javax.swing.JMenuItem();
+        mnuBtnTblRes = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -71,86 +68,37 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        mnuBtnBusBlanc = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         mnuBtnAyuda = new javax.swing.JMenuItem();
         mnuBtnAcercade = new javax.swing.JMenuItem();
 
-        jToggleButton1.setText("jToggleButton1");
-
-        jToggleButton2.setText("jToggleButton2");
-
-        jToggleButton3.setText("jToggleButton3");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jToggleButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton3)
-                .addGap(0, 465, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(jPanel1);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(jPanel2);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        jButton1.setText("Agregar Usuario");
+        jButton1.setIcon(tamano.obtenerImagen(getClass().getResource("/Imagenes/png/UIdesign/male100.png"), imageSize.icon_toolbar));
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton1);
 
-        jButton2.setText("Agregar Ejercicio");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/png/Ejercicio/biceps.png"))); // NOI18N
+        jButton2.setText("                                                                                                                                             ");
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton2);
 
-        jButton3.setText("Agregar Comida");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/png/Salud/healthyfood6.png"))); // NOI18N
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -174,25 +122,26 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
+        jMenu6.setIcon(tamano.obtenerImagen(getClass().getResource("/Imagenes/png/UIdesign/document127.png"), new Dimension(10,10)));
         jMenu6.setText("Nuevo");
 
-        jMenuItem1.setText("Ejercicio");
-        jMenu6.add(jMenuItem1);
+        mnuBtnNuevEjer.setText("Ejercicio");
+        jMenu6.add(mnuBtnNuevEjer);
 
-        jMenuItem13.setText("Usuario");
-        jMenu6.add(jMenuItem13);
+        mnuBtnNuevUsua.setText("Usuario");
+        jMenu6.add(mnuBtnNuevUsua);
 
-        jMenuItem14.setText("Comida");
-        jMenu6.add(jMenuItem14);
+        mnuBtnNuevCom.setText("Comida");
+        jMenu6.add(mnuBtnNuevCom);
 
-        jMenuItem15.setText("Dieta");
-        jMenu6.add(jMenuItem15);
+        mnuBtnNuevDiet.setText("Dieta");
+        jMenu6.add(mnuBtnNuevDiet);
 
-        jMenuItem16.setText("Rutina");
-        jMenu6.add(jMenuItem16);
+        mnuBtnNuevRut.setText("Rutina");
+        jMenu6.add(mnuBtnNuevRut);
 
-        jMenuItem17.setText("Tabla de Resultados");
-        jMenu6.add(jMenuItem17);
+        mnuBtnTblRes.setText("Tabla de Resultados");
+        jMenu6.add(mnuBtnTblRes);
 
         jMenu1.add(jMenu6);
         jMenu1.add(jSeparator1);
@@ -249,6 +198,25 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu5.setText("Busquedas");
+
+        mnuBtnBusBlanc.setText("Busqueda en Blanco");
+        jMenu5.add(mnuBtnBusBlanc);
+
+        jMenuItem3.setText("Busqueda de Personas");
+        jMenu5.add(jMenuItem3);
+
+        jMenuItem4.setText("Busqueda de Ejercicios");
+        jMenu5.add(jMenuItem4);
+
+        jMenuItem8.setText("Busqueda de Comidas");
+        jMenu5.add(jMenuItem8);
+
+        jMenuItem9.setText("Busquedas de Rutinas");
+        jMenu5.add(jMenuItem9);
+
+        jMenuItem1.setText("Busquedas de Membresias");
+        jMenu5.add(jMenuItem1);
+
         jMenuBar1.add(jMenu5);
 
         jMenu8.setText("Mostrar");
@@ -276,12 +244,14 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(554, Short.MAX_VALUE))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE))
         );
 
         pack();
@@ -331,6 +301,7 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -342,35 +313,33 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem mnuBtnAcercade;
     private javax.swing.JMenuItem mnuBtnAyuda;
+    private javax.swing.JMenuItem mnuBtnBusBlanc;
     private javax.swing.JMenuItem mnuBtnGuardar;
     private javax.swing.JMenuItem mnuBtnGuardarComo;
     private javax.swing.JMenuItem mnuBtnGuardarTodo;
+    private javax.swing.JMenuItem mnuBtnNuevCom;
+    private javax.swing.JMenuItem mnuBtnNuevDiet;
+    private javax.swing.JMenuItem mnuBtnNuevEjer;
+    private javax.swing.JMenuItem mnuBtnNuevRut;
+    private javax.swing.JMenuItem mnuBtnNuevUsua;
     private javax.swing.JMenuItem mnuBtnRedo;
     private javax.swing.JMenuItem mnuBtnSalir;
+    private javax.swing.JMenuItem mnuBtnTblRes;
     private javax.swing.JMenuItem mnubtnUndo;
     // End of variables declaration//GEN-END:variables
     

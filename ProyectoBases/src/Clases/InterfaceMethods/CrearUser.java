@@ -6,11 +6,14 @@ package Clases.InterfaceMethods;
 
 import Clases.Util.Messages;
 import Clases.Util.Validate;
-import Clases.Util.imageSize;
+import Clases.Util.Verificar;
+import Imagenes.imageSize;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -26,7 +29,7 @@ import sun.swing.ImageIconUIResource;
  *
  * @author Clases
  */
-public class CrearUser extends JPanel{
+public class CrearUser extends JPanel implements Verificar{
     private JFrame anterior;
     private int estado;
     /**
@@ -61,6 +64,20 @@ public class CrearUser extends JPanel{
         lblcheck = new javax.swing.JLabel();
         lblcheck2 = new javax.swing.JLabel();
 
+        txtUsuario.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                txtUserFocusLost(e);
+            }
+        });
+        
+        txtVerif.addFocusListener(new FocusAdapter() {
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                txtVerifFocusLost(e);
+            }
+        });
         lblPrincipal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrincipal.setText("Usuario Nuevo");
@@ -172,7 +189,8 @@ public class CrearUser extends JPanel{
     private javax.swing.JTextField txtUsuario;
     private javax.swing.JPasswordField txtVerif;
     // End of variables declaration                   
-    public void verificarDatos(){
+    @Override
+    public boolean verificarDatos(){
         if(datosVacios())
             Messages.errorMessage("Todos los campos deben estar llenos");
         else{
@@ -181,26 +199,11 @@ public class CrearUser extends JPanel{
             else
                 if(!Validate.isOnlyAlfa(txtApellido.getText()))
                     Messages.errorMessage("Su apellido tiene numeros o caracteres especiales?");
-                else{
-                try {
-                    mostrarCheckUser();
-                } catch (IOException ex) {
-                    Logger.getLogger(CrearUser.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (URISyntaxException ex) {
-                    Logger.getLogger(CrearUser.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                    if(!Validate.isOnlyAlfaNum(txtUsuario.getText()))
-                        Messages.errorMessage("Solo letras o numeros");
-                    else 
-                        if(txtContra.getPassword().length < 8)
-                            Messages.errorMessage("La contrasena debe tener mas de 8 caracteres");
-                        else
-                            if(!verificarContra())
-                                Messages.errorMessage("No coinciden las contrasenas");    
-                            else
-                                mostrarCheckContra();
-                    }
-        }
+                else
+                    return true;
+            }
+        
+        return false;
     }
     public boolean verificarContra(){
         if(txtContra.getPassword().length != txtVerif.getPassword().length)
@@ -211,7 +214,8 @@ public class CrearUser extends JPanel{
     public boolean verificarUser(){
         return true;
     }
-    private boolean datosVacios(){
+    @Override
+    public boolean datosVacios(){
         if( txtNombre.getText().isEmpty() ) return true;
         if( txtApellido.getText().isEmpty() ) return true;
         if( txtUsuario.getText().isEmpty() ) return true;
@@ -220,16 +224,43 @@ public class CrearUser extends JPanel{
         
         return false;
     }
-    private void mostrarCheckUser() throws IOException, URISyntaxException{
-        String dir = "../Imagenes/check.png";
-        //getClass().getResource("/Imagenes/check.png");
-        lblcheck.setIcon(imageSize.obtenerImagen(getClass().getResource("/Imagenes/check.png"), new Dimension(25, 25)));
-        
+    
+    private void mostrarCheckUser(){
+        Validate.showCheckIcon(lblcheck, new Dimension(25, 25));
     }
+    
     private void mostrarCheckContra(){
-        String dir = "../Imagenes/check.png";
-        
-        lblcheck2.setIcon(imageSize.obtenerImagen(getClass().getResource("/Imagenes/check.png"), new Dimension(25, 25)));
-        
+        Validate.showCheckIcon(lblcheck2, new Dimension(25, 25));
+    }
+    
+    private void mostrarErrorUser(){
+        Validate.showErrorIcon(lblcheck, new Dimension(25, 25));
+    }
+    
+    private void mostrarErrorContra(){
+        Validate.showErrorIcon(lblcheck2, new Dimension(25, 25));
+    }
+    private void txtUserFocusLost(FocusEvent fe){
+        if(!Validate.isOnlyAlfaNum(txtUsuario.getText()))
+            Messages.errorMessage("Solo letras o numeros");
+        else
+            if(verificarUser())
+                mostrarCheckUser();
+            else{
+                mostrarErrorUser();
+                Messages.errorMessage("Escoja otro usuario");
+            }
+    }
+    
+    private void txtVerifFocusLost(FocusEvent e){
+        if(txtContra.getPassword().length < 8)
+            Messages.errorMessage("La contrasena debe tener mas de 8 caracteres");
+        else
+            if(!verificarContra()){
+                mostrarErrorContra();
+                Messages.errorMessage("No coinciden las contrasenas");    
+            }
+            else
+                mostrarCheckContra();
     }
 }

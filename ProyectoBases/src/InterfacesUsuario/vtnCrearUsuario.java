@@ -4,7 +4,7 @@
  */
 package InterfacesUsuario;
 
-import Clases.InterfaceMethods.CrearUser;
+import Clases.InterfaceMethods.*;
 import Clases.Util.Validate;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -24,6 +24,7 @@ public class vtnCrearUsuario extends javax.swing.JFrame {
     private JFrame anterior;
     private int estado;
     private CrearUser userNew;
+    private PreferUser prefer;
     private CardLayout c1;
     JPanel buttonBoxPane;
     
@@ -51,6 +52,7 @@ public class vtnCrearUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         buttonBoxPane = new JPanel();
         userNew = new CrearUser();
+        prefer = new PreferUser();
         c1 = new CardLayout();
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,6 +62,7 @@ public class vtnCrearUsuario extends javax.swing.JFrame {
                 
         btnSiguiente.setText("Siguiente");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSiguienteActionPerformed(evt);
             }
@@ -68,6 +71,7 @@ public class vtnCrearUsuario extends javax.swing.JFrame {
         btnAnterior.setText("Anterior");
         btnAnterior.setEnabled(false);
         btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnteriorActionPerformed(evt);
             }
@@ -84,10 +88,11 @@ public class vtnCrearUsuario extends javax.swing.JFrame {
         buttonBoxPane.add(btnAnterior);
         buttonBoxPane.add(btnSiguiente);
         
-        jPanel1.setLayout(new CardLayout());
+        jPanel1.setLayout(c1);
         
         jPanel1.add(userNew, "usuarioNuevo");
-    
+        jPanel1.add(prefer, "preferenciasNuevo");
+        
         getContentPane().add(jPanel1, BorderLayout.CENTER);
         getContentPane().add(buttonBoxPane, BorderLayout.PAGE_END);
         
@@ -101,16 +106,24 @@ public class vtnCrearUsuario extends javax.swing.JFrame {
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-
+        c1.last(jPanel1);
     }                                           
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
         switch(estado){
             case 0:{
-                userNew.verificarDatos();
-                btnAnterior.setEnabled(true);
-                
+                if(userNew.verificarDatos()){
+                    btnAnterior.setEnabled(true);
+                    estado++;
+                    c1.next(jPanel1);
+                }
+            }break;
+            case 1:{
+                if(prefer.verificarDatos()){
+                    estado++;
+                    c1.next(jPanel1);
+                }
             }break;
             default:{
 
