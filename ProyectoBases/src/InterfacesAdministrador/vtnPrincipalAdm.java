@@ -4,10 +4,10 @@
  */
 package InterfacesAdministrador;
 
+import Clases.InterfaceMethods.Admin.EjerciciosCallback;
 import Clases.Util.ConectorBDD;
 import Imagenes.imageResource;
 import Imagenes.imageSize;
-import java.awt.Dimension;
 
 /**
  *
@@ -420,6 +420,8 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
     private void mnuBtnNuevEjerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevEjerActionPerformed
         // TODO add your handling code here:
+        EjerciciosCallback ejcb = new EjerciciosCallback();
+        ejcb.mnuBtnNuevEjerActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_mnuBtnNuevEjerActionPerformed
 
     private void mnuBtnNuevUsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevUsuaActionPerformed
@@ -460,6 +462,8 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
     private void mnuBtnBusEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusEjerciciosActionPerformed
         // TODO add your handling code here:
+         EjerciciosCallback ejcb = new EjerciciosCallback();
+         ejcb.mnuBtnBusEjerciciosActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_mnuBtnBusEjerciciosActionPerformed
 
     private void mnuBtnBusComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusComidasActionPerformed
@@ -480,6 +484,8 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
     private void mnuBtnMostrarEjerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarEjerActionPerformed
         // TODO add your handling code here:
+         EjerciciosCallback ejcb = new EjerciciosCallback();
+        ejcb.mnuBtnMostrarEjerActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_mnuBtnMostrarEjerActionPerformed
 
     private void mnuBtnMostrarRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarRutActionPerformed
@@ -523,11 +529,13 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new vtnPrincipalAdm().setVisible(true);
             }
         });
     }
+    // <editor-fold defaultstate="collapsed" desc="Autogen-Variable Declaration Code">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnToolAddComida;
     private javax.swing.JButton btnToolAddEjercicio;
@@ -581,7 +589,7 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JMenu mnuReportes;
     private javax.swing.JMenuItem mnubtnUndo;
     // End of variables declaration//GEN-END:variables
-    
+    // </editor-fold> 
     private imageResource imgPersona;
     private imageResource imgEjercicio;
     private imageResource imgRutina;
