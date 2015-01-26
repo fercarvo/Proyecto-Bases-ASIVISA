@@ -5,7 +5,7 @@
 package InterfacesUsuario;
 
 import javax.swing.JOptionPane;
-import Clases.Util.Validate;
+import Clases.InterfaceMethods.Validate;
 /**
  *
  * @author Clases

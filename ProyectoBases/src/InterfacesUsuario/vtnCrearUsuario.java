@@ -4,8 +4,10 @@
  */
 package InterfacesUsuario;
 
+import Clases.InterfaceMethods.User.PreferUser;
+import Clases.InterfaceMethods.User.CrearUser;
 import Clases.InterfaceMethods.*;
-import Clases.Util.Validate;
+import Clases.InterfaceMethods.Validate;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Container;
