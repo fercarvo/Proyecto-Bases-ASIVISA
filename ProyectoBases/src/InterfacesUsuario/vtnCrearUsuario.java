@@ -11,13 +11,12 @@ import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
  *
- * @author Clases
+ * @author Kevin
  */
 public class vtnCrearUsuario extends javax.swing.JFrame {
 

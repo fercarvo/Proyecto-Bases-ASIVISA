@@ -5,19 +5,10 @@
 package Imagenes;
 
 import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.LinkedList;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author Clases
+ * @author Kevin
  */
 public class imageSize {
     public static final int icon = 0;
@@ -29,14 +20,14 @@ public class imageSize {
     public static final int icon_toolbar = 4;
     public static final int icon_menu = 5;
     
-    private static int ICON_MENU_HEIGHT = 12;
-    private static int ICON_MENU_WEIGHT = 12;
+    private static int ICON_MENU_HEIGHT = 20;
+    private static int ICON_MENU_WEIGHT = 20;
     
-    private static int ICON_TOOLBAR_HEIGHT = 36;
-    private static int ICON_TOOLBAR_WEIGHT = 36;
+    private static int ICON_TOOLBAR_HEIGHT = 40;
+    private static int ICON_TOOLBAR_WEIGHT = 40;
     
-    private static int ICON_HEIGHT = 25;
-    private static int ICON_WEIGHT = 25;
+    private static int ICON_HEIGHT = 150;
+    private static int ICON_WEIGHT = 150;
     
     private static int SMALL_HEIGHT = 300;
     private static int SMALL_WEIGHT = 300;
@@ -72,33 +63,32 @@ public class imageSize {
     }
     
     
-    public  void setImageSize(int imageSizeTipe){
-        
+    public void setImageSize(int imageSizeTipe){
         switch(imageSizeTipe){
             case 0:{
-                alto = ICON_HEIGHT;
-                ancho = ICON_WEIGHT; 
+                this.alto = ICON_HEIGHT;
+                this.ancho = ICON_WEIGHT; 
            }break;
             case 1:{
-                alto = SMALL_HEIGHT;
-                ancho = SMALL_WEIGHT;
+                this.alto = SMALL_HEIGHT;
+                this.ancho = SMALL_WEIGHT;
             }break;
             case 2:{
-                alto = MEDIUM_HEIGHT;
-                ancho = MEDIUM_WEIGHT;
+                this.alto = MEDIUM_HEIGHT;
+                this.ancho = MEDIUM_WEIGHT;
             }break;
             case 3:{
-                alto = LARGE_HEIGHT;
-                ancho = LARGE_WEIGHT;
+                this.alto = LARGE_HEIGHT;
+                this.ancho = LARGE_WEIGHT;
             }break;
             case 4:{
-                ancho = ICON_TOOLBAR_WEIGHT;
-                alto = ICON_TOOLBAR_HEIGHT;
+                this.ancho = ICON_TOOLBAR_WEIGHT;
+                this.alto = ICON_TOOLBAR_HEIGHT;
                 
             }break;
             case 5:{
-                ancho = ICON_MENU_WEIGHT;
-                alto = ICON_MENU_HEIGHT;
+                this.ancho = ICON_MENU_WEIGHT;
+                this.alto = ICON_MENU_HEIGHT;
             }break;
             default:{
             }
@@ -106,5 +96,12 @@ public class imageSize {
         
     }
     
-    
+    public static Dimension getDimension(int tipo){
+        imageSize tam = new imageSize();
+        tam.setImageSize(tipo);
+        Dimension d = new Dimension(tam.getAncho(), tam.getAlto());
+        
+        tam = null;
+        return d;
+    }
 }

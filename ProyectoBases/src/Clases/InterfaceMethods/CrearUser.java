@@ -7,6 +7,7 @@ package Clases.InterfaceMethods;
 import Clases.Util.Messages;
 import Clases.Util.Validate;
 import Clases.Util.Verificar;
+import Imagenes.imageResource;
 import Imagenes.imageSize;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -226,20 +227,21 @@ public class CrearUser extends JPanel implements Verificar{
     }
     
     private void mostrarCheckUser(){
-        Validate.showCheckIcon(lblcheck, new Dimension(25, 25));
+        imageResource.showCheckIcon(lblcheck, new Dimension(25, 25));
     }
     
     private void mostrarCheckContra(){
-        Validate.showCheckIcon(lblcheck2, new Dimension(25, 25));
+        imageResource.showCheckIcon(lblcheck2, new Dimension(25, 25));
     }
     
     private void mostrarErrorUser(){
-        Validate.showErrorIcon(lblcheck, new Dimension(25, 25));
+        imageResource.showErrorIcon(lblcheck, new Dimension(25, 25));
     }
     
     private void mostrarErrorContra(){
-        Validate.showErrorIcon(lblcheck2, new Dimension(25, 25));
+        imageResource.showErrorIcon(lblcheck2, new Dimension(25, 25));
     }
+    
     private void txtUserFocusLost(FocusEvent fe){
         if(!Validate.isOnlyAlfaNum(txtUsuario.getText()))
             Messages.errorMessage("Solo letras o numeros");

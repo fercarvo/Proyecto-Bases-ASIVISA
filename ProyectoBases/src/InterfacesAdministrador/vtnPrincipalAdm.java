@@ -11,17 +11,28 @@ import java.awt.Dimension;
 
 /**
  *
- * @author Clases
+ * @author Kevin
  */
 public class vtnPrincipalAdm extends javax.swing.JFrame {
     
     private ConectorBDD con;
-    private imageResource tamano;
     /**
      * Creates new form vtnPrincipalAdm
      */
     public vtnPrincipalAdm() {
-        tamano = new imageResource();
+        
+        imgEjercicio = new imageResource("biceps.png", "Ejercicio", imageSize.icon_toolbar);
+        imgPersona = new imageResource("male100.png", "UIdesign", imageSize.icon_toolbar);
+        imgComida = new imageResource("healthyfood4.png", "Salud", imageSize.icon_toolbar);
+        imgDieta = new imageResource("healthyfood6.png", "Salud", imageSize.icon_toolbar);
+        imgRutina = new imageResource("weightlift.png", "Ejercicio", imageSize.icon_toolbar);
+        
+        imgMnuEjercicio = new imageResource("dumbbell.png", "Ejercicio", imageSize.icon_menu);
+        imgMnuPersona = new imageResource("male100.png", "UIdesign", imageSize.icon_menu);
+        imgMnuComida = new imageResource("healthyfood4.png", "Salud", imageSize.icon_menu);
+        imgMnuDieta = new imageResource("healthyfood6.png", "Salud", imageSize.icon_menu);
+        imgMnuRutina = new imageResource("weightlift.png", "Ejercicio", imageSize.icon_menu);
+        
         initComponents();
     }
 
@@ -35,15 +46,15 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        btnAgregarADC = new javax.swing.JButton();
+        btnToolAddUsuario = new javax.swing.JButton();
+        btnToolAddEjercicio = new javax.swing.JButton();
+        btnToolAddComida = new javax.swing.JButton();
+        btnToolAgregarADC = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        mnuArchivo = new javax.swing.JMenu();
+        mnuNuevo = new javax.swing.JMenu();
         mnuBtnNuevEjer = new javax.swing.JMenuItem();
         mnuBtnNuevUsua = new javax.swing.JMenuItem();
         mnuBtnNuevCom = new javax.swing.JMenuItem();
@@ -51,32 +62,38 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         mnuBtnNuevRut = new javax.swing.JMenuItem();
         mnuBtnTblRes = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuAbrir = new javax.swing.JMenu();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mnuBtnGuardar = new javax.swing.JMenuItem();
         mnuBtnGuardarComo = new javax.swing.JMenuItem();
         mnuBtnGuardarTodo = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         mnuBtnSalir = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        mnuEditar = new javax.swing.JMenu();
         mnubtnUndo = new javax.swing.JMenuItem();
         mnuBtnRedo = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        mnuBtnPreferencias = new javax.swing.JMenuItem();
+        mnuConectar = new javax.swing.JMenu();
+        mnuBtnConectar = new javax.swing.JMenuItem();
+        mnuBtnCheckConexion = new javax.swing.JMenuItem();
+        mnuBusqueda = new javax.swing.JMenu();
         mnuBtnBusBlanc = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        mnuBtnBusPersonas = new javax.swing.JMenuItem();
+        mnuBtnBusEjercicios = new javax.swing.JMenuItem();
+        mnuBtnBusComidas = new javax.swing.JMenuItem();
+        mnuBtnBusRutinas = new javax.swing.JMenuItem();
+        mnuBtnBusMembresias = new javax.swing.JMenuItem();
+        mnuMostrar = new javax.swing.JMenu();
+        mnuBtnMostrarPer = new javax.swing.JMenuItem();
+        mnuBtnMostrarEjer = new javax.swing.JMenuItem();
+        mnuBtnMostrarRut = new javax.swing.JMenuItem();
+        mnuBtnMostrarCom = new javax.swing.JMenuItem();
+        mnuBtnMostrarDiet = new javax.swing.JMenuItem();
+        mnuReportes = new javax.swing.JMenu();
+        mnBtnMenbresias = new javax.swing.JMenuItem();
+        mnuBtnEstadisticas = new javax.swing.JMenuItem();
+        mnuAyuda = new javax.swing.JMenu();
         mnuBtnAyuda = new javax.swing.JMenuItem();
         mnuBtnAcercade = new javax.swing.JMenuItem();
 
@@ -85,157 +102,297 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        jButton1.setIcon(tamano.obtenerImagen(getClass().getResource("/Imagenes/png/UIdesign/male100.png"), imageSize.icon_toolbar));
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
+        btnToolAddUsuario.setIcon(imgPersona);
+        btnToolAddUsuario.setToolTipText("Agregar un usuario nuevo");
+        btnToolAddUsuario.setFocusable(false);
+        btnToolAddUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnToolAddUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnToolAddUsuario);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/png/Ejercicio/biceps.png"))); // NOI18N
-        jButton2.setText("                                                                                                                                             ");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton2);
+        btnToolAddEjercicio.setIcon(imgEjercicio);
+        btnToolAddEjercicio.setToolTipText("Agregar un ejercicio nuevo");
+        btnToolAddEjercicio.setFocusable(false);
+        btnToolAddEjercicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnToolAddEjercicio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnToolAddEjercicio);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/png/Salud/healthyfood6.png"))); // NOI18N
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
+        btnToolAddComida.setIcon(imgComida);
+        btnToolAddComida.setToolTipText("Agregar una comida nueva");
+        btnToolAddComida.setFocusable(false);
+        btnToolAddComida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnToolAddComida.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnToolAddComida);
 
-        btnAgregarADC.setText("Agregar ADC");
-        btnAgregarADC.setFocusable(false);
-        btnAgregarADC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAgregarADC.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnAgregarADC.addActionListener(new java.awt.event.ActionListener() {
+        btnToolAgregarADC.setText("Agregar ADC");
+        btnToolAgregarADC.setFocusable(false);
+        btnToolAgregarADC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnToolAgregarADC.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnToolAgregarADC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarADCActionPerformed(evt);
+                btnToolAgregarADCActionPerformed(evt);
             }
         });
-        jToolBar1.add(btnAgregarADC);
+        jToolBar1.add(btnToolAgregarADC);
 
         jButton5.setFocusable(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton5);
 
-        jMenu1.setText("Archivo");
+        mnuArchivo.setText("Archivo");
 
-        jMenu6.setIcon(tamano.obtenerImagen(getClass().getResource("/Imagenes/png/UIdesign/document127.png"), new Dimension(10,10)));
-        jMenu6.setText("Nuevo");
+        mnuNuevo.setIcon(imageResource.imageFromResourcesPng("document127.png", "UIdesign", imageSize.icon_menu));
+        mnuNuevo.setText("Nuevo");
 
+        mnuBtnNuevEjer.setIcon(imgMnuEjercicio);
         mnuBtnNuevEjer.setText("Ejercicio");
-        jMenu6.add(mnuBtnNuevEjer);
+        mnuBtnNuevEjer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnNuevEjerActionPerformed(evt);
+            }
+        });
+        mnuNuevo.add(mnuBtnNuevEjer);
 
+        mnuBtnNuevUsua.setIcon(imgMnuPersona);
         mnuBtnNuevUsua.setText("Usuario");
-        jMenu6.add(mnuBtnNuevUsua);
+        mnuBtnNuevUsua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnNuevUsuaActionPerformed(evt);
+            }
+        });
+        mnuNuevo.add(mnuBtnNuevUsua);
 
+        mnuBtnNuevCom.setIcon(imgMnuComida);
         mnuBtnNuevCom.setText("Comida");
-        jMenu6.add(mnuBtnNuevCom);
+        mnuBtnNuevCom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnNuevComActionPerformed(evt);
+            }
+        });
+        mnuNuevo.add(mnuBtnNuevCom);
 
+        mnuBtnNuevDiet.setIcon(imgMnuDieta);
         mnuBtnNuevDiet.setText("Dieta");
-        jMenu6.add(mnuBtnNuevDiet);
+        mnuBtnNuevDiet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnNuevDietActionPerformed(evt);
+            }
+        });
+        mnuNuevo.add(mnuBtnNuevDiet);
 
+        mnuBtnNuevRut.setIcon(imgMnuRutina);
         mnuBtnNuevRut.setText("Rutina");
-        jMenu6.add(mnuBtnNuevRut);
+        mnuBtnNuevRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnNuevRutActionPerformed(evt);
+            }
+        });
+        mnuNuevo.add(mnuBtnNuevRut);
 
+        mnuBtnTblRes.setIcon(imageResource.imageFromResourcesPng("chart47.png", "UIdesign", imageSize.icon_menu));
         mnuBtnTblRes.setText("Tabla de Resultados");
-        jMenu6.add(mnuBtnTblRes);
+        mnuBtnTblRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnTblResActionPerformed(evt);
+            }
+        });
+        mnuNuevo.add(mnuBtnTblRes);
 
-        jMenu1.add(jMenu6);
-        jMenu1.add(jSeparator1);
+        mnuArchivo.add(mnuNuevo);
+        mnuArchivo.add(jSeparator1);
 
-        jMenu7.setText("Abrir");
-
-        jMenuItem2.setText("jMenuItem2");
-        jMenu7.add(jMenuItem2);
-
-        jMenu1.add(jMenu7);
-        jMenu1.add(jSeparator3);
+        mnuAbrir.setIcon(imageResource.imageFromResourcesPng("opened18.png", "UIdesign", imageSize.icon_menu));
+        mnuAbrir.setText("Abrir");
+        mnuArchivo.add(mnuAbrir);
+        mnuArchivo.add(jSeparator3);
 
         mnuBtnGuardar.setText("Guardar");
-        jMenu1.add(mnuBtnGuardar);
+        mnuArchivo.add(mnuBtnGuardar);
 
         mnuBtnGuardarComo.setText("Guardar Como");
-        jMenu1.add(mnuBtnGuardarComo);
+        mnuArchivo.add(mnuBtnGuardarComo);
 
         mnuBtnGuardarTodo.setText("Guardar Todo");
-        jMenu1.add(mnuBtnGuardarTodo);
-        jMenu1.add(jSeparator4);
+        mnuArchivo.add(mnuBtnGuardarTodo);
+        mnuArchivo.add(jSeparator4);
 
         mnuBtnSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         mnuBtnSalir.setText("Salir");
-        jMenu1.add(mnuBtnSalir);
+        mnuArchivo.add(mnuBtnSalir);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(mnuArchivo);
 
-        jMenu4.setText("Editar");
+        mnuEditar.setText("Editar");
 
         mnubtnUndo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        mnubtnUndo.setIcon(imageResource.imageFromResourcesPng("update2.png", "UIdesign", imageSize.icon_menu));
         mnubtnUndo.setText("Undo");
-        jMenu4.add(mnubtnUndo);
+        mnuEditar.add(mnubtnUndo);
 
         mnuBtnRedo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
+        mnuBtnRedo.setIcon(imageResource.imageFromResourcesPng("update22.png", "UIdesign", imageSize.icon_menu));
         mnuBtnRedo.setText("Redo");
-        jMenu4.add(mnuBtnRedo);
-        jMenu4.add(jSeparator2);
+        mnuEditar.add(mnuBtnRedo);
+        mnuEditar.add(jSeparator2);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setText("Preferencias");
-        jMenu4.add(jMenuItem7);
+        mnuBtnPreferencias.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        mnuBtnPreferencias.setIcon(imageResource.imageFromResourcesPng("settings56.png", "UIdesign", imageSize.icon_menu));
+        mnuBtnPreferencias.setText("Preferencias");
+        mnuEditar.add(mnuBtnPreferencias);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(mnuEditar);
 
-        jMenu2.setText("Conectar");
+        mnuConectar.setText("Conectar");
 
-        jMenuItem5.setText("Conectar a la base de datos");
-        jMenu2.add(jMenuItem5);
+        mnuBtnConectar.setIcon(imageResource.imageFromResourcesPng("datastorage1.png", "UIdesign", imageSize.icon_menu));
+        mnuBtnConectar.setText("Conectar a la base de datos");
+        mnuBtnConectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnConectarActionPerformed(evt);
+            }
+        });
+        mnuConectar.add(mnuBtnConectar);
 
-        jMenuItem6.setText("Revisar conexion");
-        jMenu2.add(jMenuItem6);
+        mnuBtnCheckConexion.setIcon(imageResource.imageFromResourcesPng("basic14.png", "UIdesign", imageSize.icon_menu));
+        mnuBtnCheckConexion.setText("Revisar conexion");
+        mnuBtnCheckConexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnCheckConexionActionPerformed(evt);
+            }
+        });
+        mnuConectar.add(mnuBtnCheckConexion);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(mnuConectar);
 
-        jMenu5.setText("Busquedas");
+        mnuBusqueda.setText("Busquedas");
 
+        mnuBtnBusBlanc.setIcon(imageResource.imageFromResourcesPng("magnifier52.png", "UIdesign", imageSize.icon_menu));
         mnuBtnBusBlanc.setText("Busqueda en Blanco");
-        jMenu5.add(mnuBtnBusBlanc);
+        mnuBtnBusBlanc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnBusBlancActionPerformed(evt);
+            }
+        });
+        mnuBusqueda.add(mnuBtnBusBlanc);
 
-        jMenuItem3.setText("Busqueda de Personas");
-        jMenu5.add(jMenuItem3);
+        mnuBtnBusPersonas.setIcon(imgMnuPersona);
+        mnuBtnBusPersonas.setText("Busqueda de Personas");
+        mnuBtnBusPersonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnBusPersonasActionPerformed(evt);
+            }
+        });
+        mnuBusqueda.add(mnuBtnBusPersonas);
 
-        jMenuItem4.setText("Busqueda de Ejercicios");
-        jMenu5.add(jMenuItem4);
+        mnuBtnBusEjercicios.setIcon(imgMnuEjercicio);
+        mnuBtnBusEjercicios.setText("Busqueda de Ejercicios");
+        mnuBtnBusEjercicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnBusEjerciciosActionPerformed(evt);
+            }
+        });
+        mnuBusqueda.add(mnuBtnBusEjercicios);
 
-        jMenuItem8.setText("Busqueda de Comidas");
-        jMenu5.add(jMenuItem8);
+        mnuBtnBusComidas.setIcon(imgMnuComida);
+        mnuBtnBusComidas.setText("Busqueda de Comidas");
+        mnuBtnBusComidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnBusComidasActionPerformed(evt);
+            }
+        });
+        mnuBusqueda.add(mnuBtnBusComidas);
 
-        jMenuItem9.setText("Busquedas de Rutinas");
-        jMenu5.add(jMenuItem9);
+        mnuBtnBusRutinas.setIcon(imgMnuRutina);
+        mnuBtnBusRutinas.setText("Busquedas de Rutinas");
+        mnuBtnBusRutinas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnBusRutinasActionPerformed(evt);
+            }
+        });
+        mnuBusqueda.add(mnuBtnBusRutinas);
 
-        jMenuItem1.setText("Busquedas de Membresias");
-        jMenu5.add(jMenuItem1);
+        mnuBtnBusMembresias.setText("Busquedas de Membresias");
+        mnuBtnBusMembresias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnBusMembresiasActionPerformed(evt);
+            }
+        });
+        mnuBusqueda.add(mnuBtnBusMembresias);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(mnuBusqueda);
 
-        jMenu8.setText("Mostrar");
-        jMenuBar1.add(jMenu8);
+        mnuMostrar.setText("Mostrar");
 
-        jMenu9.setText("Reportes");
-        jMenuBar1.add(jMenu9);
+        mnuBtnMostrarPer.setIcon(imgMnuPersona);
+        mnuBtnMostrarPer.setText("Personas");
+        mnuBtnMostrarPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnMostrarPerActionPerformed(evt);
+            }
+        });
+        mnuMostrar.add(mnuBtnMostrarPer);
 
-        jMenu3.setText("Ayuda");
+        mnuBtnMostrarEjer.setIcon(imgMnuEjercicio);
+        mnuBtnMostrarEjer.setText("Ejercicios");
+        mnuBtnMostrarEjer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnMostrarEjerActionPerformed(evt);
+            }
+        });
+        mnuMostrar.add(mnuBtnMostrarEjer);
+
+        mnuBtnMostrarRut.setIcon(imgMnuRutina);
+        mnuBtnMostrarRut.setText("Rutinas");
+        mnuBtnMostrarRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnMostrarRutActionPerformed(evt);
+            }
+        });
+        mnuMostrar.add(mnuBtnMostrarRut);
+
+        mnuBtnMostrarCom.setIcon(imgMnuComida);
+        mnuBtnMostrarCom.setText("Comidas");
+        mnuBtnMostrarCom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnMostrarComActionPerformed(evt);
+            }
+        });
+        mnuMostrar.add(mnuBtnMostrarCom);
+
+        mnuBtnMostrarDiet.setIcon(imgMnuDieta);
+        mnuBtnMostrarDiet.setText("Dietas");
+        mnuBtnMostrarDiet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnMostrarDietActionPerformed(evt);
+            }
+        });
+        mnuMostrar.add(mnuBtnMostrarDiet);
+
+        jMenuBar1.add(mnuMostrar);
+
+        mnuReportes.setText("Reportes");
+
+        mnBtnMenbresias.setIcon(imageResource.imageFromResourcesPng("money132.png", "Cobros", imageSize.icon_menu));
+        mnBtnMenbresias.setText("Membresias");
+        mnuReportes.add(mnBtnMenbresias);
+
+        mnuBtnEstadisticas.setIcon(imageResource.imageFromResourcesPng("chart47.png", "UIdesign", imageSize.icon_menu));
+        mnuBtnEstadisticas.setText("Estadisticas");
+        mnuReportes.add(mnuBtnEstadisticas);
+
+        jMenuBar1.add(mnuReportes);
+
+        mnuAyuda.setText("Ayuda");
 
         mnuBtnAyuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
         mnuBtnAyuda.setText("Contenidos de Ayuda");
-        jMenu3.add(mnuBtnAyuda);
+        mnuAyuda.add(mnuBtnAyuda);
 
         mnuBtnAcercade.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         mnuBtnAcercade.setText("Acerca de");
-        jMenu3.add(mnuBtnAcercade);
+        mnuAyuda.add(mnuBtnAcercade);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(mnuAyuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -249,17 +406,93 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE))
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarADCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarADCActionPerformed
+    private void btnToolAgregarADCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToolAgregarADCActionPerformed
         VtnAreaDelCuerpo vtnADC = new VtnAreaDelCuerpo(null, con);
-    }//GEN-LAST:event_btnAgregarADCActionPerformed
+    }//GEN-LAST:event_btnToolAgregarADCActionPerformed
+
+    private void mnuBtnNuevEjerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevEjerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnNuevEjerActionPerformed
+
+    private void mnuBtnNuevUsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevUsuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnNuevUsuaActionPerformed
+
+    private void mnuBtnNuevComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevComActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnNuevComActionPerformed
+
+    private void mnuBtnNuevDietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevDietActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnNuevDietActionPerformed
+
+    private void mnuBtnNuevRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevRutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnNuevRutActionPerformed
+
+    private void mnuBtnTblResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnTblResActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnTblResActionPerformed
+
+    private void mnuBtnConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnConectarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnConectarActionPerformed
+
+    private void mnuBtnCheckConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnCheckConexionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnCheckConexionActionPerformed
+
+    private void mnuBtnBusBlancActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusBlancActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnBusBlancActionPerformed
+
+    private void mnuBtnBusPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusPersonasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnBusPersonasActionPerformed
+
+    private void mnuBtnBusEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusEjerciciosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnBusEjerciciosActionPerformed
+
+    private void mnuBtnBusComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusComidasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnBusComidasActionPerformed
+
+    private void mnuBtnBusRutinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusRutinasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnBusRutinasActionPerformed
+
+    private void mnuBtnBusMembresiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusMembresiasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnBusMembresiasActionPerformed
+
+    private void mnuBtnMostrarPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarPerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnMostrarPerActionPerformed
+
+    private void mnuBtnMostrarEjerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarEjerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnMostrarEjerActionPerformed
+
+    private void mnuBtnMostrarRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarRutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnMostrarRutActionPerformed
+
+    private void mnuBtnMostrarComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarComActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnMostrarComActionPerformed
+
+    private void mnuBtnMostrarDietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarDietActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnMostrarDietActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,52 +529,70 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarADC;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnToolAddComida;
+    private javax.swing.JButton btnToolAddEjercicio;
+    private javax.swing.JButton btnToolAddUsuario;
+    private javax.swing.JButton btnToolAgregarADC;
     private javax.swing.JButton jButton5;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenuItem mnBtnMenbresias;
+    private javax.swing.JMenu mnuAbrir;
+    private javax.swing.JMenu mnuArchivo;
+    private javax.swing.JMenu mnuAyuda;
     private javax.swing.JMenuItem mnuBtnAcercade;
     private javax.swing.JMenuItem mnuBtnAyuda;
     private javax.swing.JMenuItem mnuBtnBusBlanc;
+    private javax.swing.JMenuItem mnuBtnBusComidas;
+    private javax.swing.JMenuItem mnuBtnBusEjercicios;
+    private javax.swing.JMenuItem mnuBtnBusMembresias;
+    private javax.swing.JMenuItem mnuBtnBusPersonas;
+    private javax.swing.JMenuItem mnuBtnBusRutinas;
+    private javax.swing.JMenuItem mnuBtnCheckConexion;
+    private javax.swing.JMenuItem mnuBtnConectar;
+    private javax.swing.JMenuItem mnuBtnEstadisticas;
     private javax.swing.JMenuItem mnuBtnGuardar;
     private javax.swing.JMenuItem mnuBtnGuardarComo;
     private javax.swing.JMenuItem mnuBtnGuardarTodo;
+    private javax.swing.JMenuItem mnuBtnMostrarCom;
+    private javax.swing.JMenuItem mnuBtnMostrarDiet;
+    private javax.swing.JMenuItem mnuBtnMostrarEjer;
+    private javax.swing.JMenuItem mnuBtnMostrarPer;
+    private javax.swing.JMenuItem mnuBtnMostrarRut;
     private javax.swing.JMenuItem mnuBtnNuevCom;
     private javax.swing.JMenuItem mnuBtnNuevDiet;
     private javax.swing.JMenuItem mnuBtnNuevEjer;
     private javax.swing.JMenuItem mnuBtnNuevRut;
     private javax.swing.JMenuItem mnuBtnNuevUsua;
+    private javax.swing.JMenuItem mnuBtnPreferencias;
     private javax.swing.JMenuItem mnuBtnRedo;
     private javax.swing.JMenuItem mnuBtnSalir;
     private javax.swing.JMenuItem mnuBtnTblRes;
+    private javax.swing.JMenu mnuBusqueda;
+    private javax.swing.JMenu mnuConectar;
+    private javax.swing.JMenu mnuEditar;
+    private javax.swing.JMenu mnuMostrar;
+    private javax.swing.JMenu mnuNuevo;
+    private javax.swing.JMenu mnuReportes;
     private javax.swing.JMenuItem mnubtnUndo;
     // End of variables declaration//GEN-END:variables
+    
+    private imageResource imgPersona;
+    private imageResource imgEjercicio;
+    private imageResource imgRutina;
+    private imageResource imgComida;
+    private imageResource imgDieta;
+    
+    private imageResource imgMnuPersona;
+    private imageResource imgMnuEjercicio;
+    private imageResource imgMnuRutina;
+    private imageResource imgMnuComida;
+    private imageResource imgMnuDieta;
     
     public ConectorBDD getCon(){
         return this.con;
