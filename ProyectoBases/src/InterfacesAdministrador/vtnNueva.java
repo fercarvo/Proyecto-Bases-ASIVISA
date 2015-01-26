@@ -9,16 +9,10 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Clases
+ * @author Kevin
  */
 public class vtnNueva extends javax.swing.JInternalFrame {
 
-    private final String Title = "";
-    private final boolean Resizable = true;
-    private final boolean Closable = true;
-    private final boolean Maximizable = true;
-    private final boolean Iconable = true;
-    
     /**
      * Creates new form vtnNueva
      */
@@ -29,7 +23,7 @@ public class vtnNueva extends javax.swing.JInternalFrame {
     }
 
     public vtnNueva(JPanel contenido, String Title) {
-        super(Title);
+        super(Title, true, true, true);
         initComponents();
         add(contenido, BorderLayout.CENTER);
     }
