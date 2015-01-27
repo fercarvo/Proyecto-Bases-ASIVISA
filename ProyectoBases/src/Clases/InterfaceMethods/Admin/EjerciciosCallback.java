@@ -26,6 +26,8 @@ public class EjerciciosCallback {
         EjercicioPanel panel = new EjercicioPanel();
         InternalFrameList listener = new InternalFrameList(panel);
         vtnNueva vtn = new vtnNueva(panel, "Ejercicio Nuevo " + (++frameCountNuevo));
+        vtn.addInternalFrameListener(listener);
+        
         vtn.setDefaultCloseOperation(JInternalFrame.DO_NOTHING_ON_CLOSE);
         vtn.setSize(300, 300);
         vtn.setLocation(xOffset*frameCountNuevo, yOffset*frameCountNuevo);
@@ -34,7 +36,7 @@ public class EjerciciosCallback {
         try{
             vtn.setSelected(true);
         }catch (java.beans.PropertyVetoException e){}
-        vtn.addInternalFrameListener(listener);
+        
         
     }
     

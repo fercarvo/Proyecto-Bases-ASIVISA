@@ -32,6 +32,11 @@ public class Messages {
     }
     
     public static int questionMessage(String question, Object[] buttonsName){
-        return JOptionPane.showOptionDialog(null, question, null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttonsName, buttonsName[3]);
+        return JOptionPane.showOptionDialog(null, question, null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttonsName, buttonsName[2]);
     }
+    
+    public static int questionMessage(Component parent, String question, Object[] buttonsName){
+        return JOptionPane.showOptionDialog(parent, question, null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttonsName, buttonsName[2]);
+    }
+    
 }
