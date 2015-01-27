@@ -23,4 +23,15 @@ public class Messages {
         JOptionPane.showMessageDialog(Parent, message, "Error",JOptionPane.ERROR_MESSAGE);
     }
     
+    public static void infoMessage(String message){
+        JOptionPane.showMessageDialog(null, message,"Atencion", JOptionPane.INFORMATION_MESSAGE, null);
+    }
+    
+    public static void infoMessage(Component Parent, String message){
+        JOptionPane.showMessageDialog(Parent, message,"Atencion", JOptionPane.INFORMATION_MESSAGE, null);
+    }
+    
+    public static int questionMessage(String question, Object[] buttonsName){
+        return JOptionPane.showOptionDialog(null, question, null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttonsName, buttonsName[3]);
+    }
 }

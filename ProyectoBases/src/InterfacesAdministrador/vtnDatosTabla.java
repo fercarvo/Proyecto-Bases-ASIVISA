@@ -27,9 +27,9 @@ public class vtnDatosTabla extends javax.swing.JPanel {
     private void initComponents() {
 
         OptionPanel = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
+        btnOpcion1 = new javax.swing.JToggleButton();
+        btnOpcion2 = new javax.swing.JToggleButton();
+        btnOpcion3 = new javax.swing.JToggleButton();
         DataPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -38,14 +38,14 @@ public class vtnDatosTabla extends javax.swing.JPanel {
 
         OptionPanel.setLayout(new javax.swing.BoxLayout(OptionPanel, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jToggleButton1.setText("jToggleButton1");
-        OptionPanel.add(jToggleButton1);
+        btnOpcion1.setText("jToggleButton1");
+        OptionPanel.add(btnOpcion1);
 
-        jToggleButton2.setText("jToggleButton2");
-        OptionPanel.add(jToggleButton2);
+        btnOpcion2.setText("jToggleButton2");
+        OptionPanel.add(btnOpcion2);
 
-        jToggleButton3.setText("jToggleButton3");
-        OptionPanel.add(jToggleButton3);
+        btnOpcion3.setText("jToggleButton3");
+        OptionPanel.add(btnOpcion3);
 
         add(OptionPanel, java.awt.BorderLayout.EAST);
 
@@ -76,12 +76,12 @@ public class vtnDatosTabla extends javax.swing.JPanel {
         add(DataPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel DataPanel;
-    private javax.swing.JPanel OptionPanel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
+    protected javax.swing.JPanel DataPanel;
+    protected javax.swing.JPanel OptionPanel;
+    protected javax.swing.JToggleButton btnOpcion1;
+    protected javax.swing.JToggleButton btnOpcion2;
+    protected javax.swing.JToggleButton btnOpcion3;
+    protected javax.swing.JScrollPane jScrollPane1;
+    protected javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

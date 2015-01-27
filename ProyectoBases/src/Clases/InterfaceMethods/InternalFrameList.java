@@ -26,12 +26,13 @@ public class InternalFrameList implements InternalFrameListener{
 
     @Override
     public void internalFrameClosing(InternalFrameEvent e) {
-        boolean escribirDatosDB;
-        escribirDatosDB = container.escribirDatosDB();
+        int a;
     }
 
     @Override
     public void internalFrameClosed(InternalFrameEvent e) {
+        boolean escribirDatosDB;
+        escribirDatosDB = container.escribirDatosDB();
         
     }
 

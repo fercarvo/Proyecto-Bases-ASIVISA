@@ -7,6 +7,7 @@ package Clases.InterfaceMethods.Admin;
 import Clases.InterfaceMethods.InternalFrameList;
 import InterfacesAdministrador.vtnNueva;
 import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -25,6 +26,7 @@ public class EjerciciosCallback {
         EjercicioPanel panel = new EjercicioPanel();
         InternalFrameList listener = new InternalFrameList(panel);
         vtnNueva vtn = new vtnNueva(panel, "Ejercicio Nuevo " + (++frameCountNuevo));
+        vtn.setDefaultCloseOperation(JInternalFrame.DO_NOTHING_ON_CLOSE);
         vtn.setSize(300, 300);
         vtn.setLocation(xOffset*frameCountNuevo, yOffset*frameCountNuevo);
         vtn.setVisible(true);

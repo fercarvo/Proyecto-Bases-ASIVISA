@@ -5,7 +5,7 @@
 package Imagenes;
 
 import Clases.Util.Messages;
-import Clases.Util.Validate;
+import Clases.InterfaceMethods.Validate;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
