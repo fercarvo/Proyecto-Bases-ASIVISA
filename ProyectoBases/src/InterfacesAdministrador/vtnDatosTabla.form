@@ -31,25 +31,25 @@
         <Property name="axis" type="int" value="3"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JToggleButton" name="btnOpcion1">
+        <Component class="javax.swing.JButton" name="btnOpcion1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jToggleButton1"/>
+            <Property name="text" type="java.lang.String" value="jButton1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="btnOpcion2">
+        <Component class="javax.swing.JButton" name="btnOpcion2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jToggleButton2"/>
+            <Property name="text" type="java.lang.String" value="jButton1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="btnOpcion3">
+        <Component class="javax.swing.JButton" name="btnOpcion3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jToggleButton3"/>
+            <Property name="text" type="java.lang.String" value="jButton1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
@@ -70,7 +70,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane1" alignment="0" pref="295" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" alignment="0" pref="327" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

@@ -114,6 +114,11 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         btnToolAddEjercicio.setFocusable(false);
         btnToolAddEjercicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnToolAddEjercicio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnToolAddEjercicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToolAddEjercicioActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnToolAddEjercicio);
 
         btnToolAddComida.setIcon(imgComida);
@@ -499,6 +504,12 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private void mnuBtnMostrarDietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarDietActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuBtnMostrarDietActionPerformed
+
+    private void btnToolAddEjercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToolAddEjercicioActionPerformed
+        // TODO add your handling code here:
+        EjerciciosCallback ejcb = new EjerciciosCallback();
+        ejcb.mnuBtnNuevEjerActionPerformed(evt, jDesktopPane1);
+    }//GEN-LAST:event_btnToolAddEjercicioActionPerformed
 
     /**
      * @param args the command line arguments

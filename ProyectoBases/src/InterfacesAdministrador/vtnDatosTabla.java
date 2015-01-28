@@ -27,9 +27,9 @@ public class vtnDatosTabla extends javax.swing.JPanel {
     private void initComponents() {
 
         OptionPanel = new javax.swing.JPanel();
-        btnOpcion1 = new javax.swing.JToggleButton();
-        btnOpcion2 = new javax.swing.JToggleButton();
-        btnOpcion3 = new javax.swing.JToggleButton();
+        btnOpcion1 = new javax.swing.JButton();
+        btnOpcion2 = new javax.swing.JButton();
+        btnOpcion3 = new javax.swing.JButton();
         DataPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -38,13 +38,13 @@ public class vtnDatosTabla extends javax.swing.JPanel {
 
         OptionPanel.setLayout(new javax.swing.BoxLayout(OptionPanel, javax.swing.BoxLayout.PAGE_AXIS));
 
-        btnOpcion1.setText("jToggleButton1");
+        btnOpcion1.setText("jButton1");
         OptionPanel.add(btnOpcion1);
 
-        btnOpcion2.setText("jToggleButton2");
+        btnOpcion2.setText("jButton1");
         OptionPanel.add(btnOpcion2);
 
-        btnOpcion3.setText("jToggleButton3");
+        btnOpcion3.setText("jButton1");
         OptionPanel.add(btnOpcion3);
 
         add(OptionPanel, java.awt.BorderLayout.EAST);
@@ -66,7 +66,7 @@ public class vtnDatosTabla extends javax.swing.JPanel {
         DataPanel.setLayout(DataPanelLayout);
         DataPanelLayout.setHorizontalGroup(
             DataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
         );
         DataPanelLayout.setVerticalGroup(
             DataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,9 +78,9 @@ public class vtnDatosTabla extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JPanel DataPanel;
     protected javax.swing.JPanel OptionPanel;
-    protected javax.swing.JToggleButton btnOpcion1;
-    protected javax.swing.JToggleButton btnOpcion2;
-    protected javax.swing.JToggleButton btnOpcion3;
+    protected javax.swing.JButton btnOpcion1;
+    protected javax.swing.JButton btnOpcion2;
+    protected javax.swing.JButton btnOpcion3;
     protected javax.swing.JScrollPane jScrollPane1;
     protected javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
