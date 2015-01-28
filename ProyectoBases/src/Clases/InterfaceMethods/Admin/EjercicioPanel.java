@@ -6,8 +6,18 @@ package Clases.InterfaceMethods.Admin;
 
 import Clases.InterfaceMethods.ConnectDbInterface;
 import Clases.InterfaceMethods.Verificar;
-import Clases.Util.Messages;
+import Clases.InterfaceMethods.Validate;
+import Clases.Util.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SpringLayout;
 
 /**
  *
@@ -15,8 +25,12 @@ import javax.swing.JPanel;
  */
 public class EjercicioPanel extends JPanel implements Verificar, ConnectDbInterface{
 
+    private cbListenerToPanel listener;
+    
     public EjercicioPanel() {
+        
         initComponents();
+        
     }
 
     /**
@@ -28,7 +42,6 @@ public class EjercicioPanel extends JPanel implements Verificar, ConnectDbInterf
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -44,57 +57,74 @@ public class EjercicioPanel extends JPanel implements Verificar, ConnectDbInterf
         jLabel6 = new javax.swing.JLabel();
         txtCalorias = new javax.swing.JTextField();
         lblId = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtAreaADC = new javax.swing.JTextArea();
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        AreaADC = new javax.swing.JPanel(new FlowLayout());
+        listener = new cbListenerToPanel(AreaADC);
+        
+        jPanel2.setLayout(new SpringLayout());
+        setLayout(new BorderLayout());
+        
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("ID:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 230, -1));
+        jPanel2.add(jLabel1);
 
+        jPanel2.add(lblId);
+        
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("Nombre:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, -1));
+        jPanel2.add(jLabel2);
+        
+        txtNombre.addFocusListener(new StringValidateTxt());
+        jLabel2.setLabelFor(txtNombre);
+        jPanel2.add(txtNombre);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("Descripción:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, -1));
+        jPanel2.add(jLabel3);
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel4.setText("Intensidad:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 90, -1));
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel5.setText("Areas del Cuerpo:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 90, -1));
-
+        jLabel3.setLabelFor(jScrollPane1);
+        
         txtAreaDescripcion.setColumns(28);
         txtAreaDescripcion.setRows(5);
         jScrollPane1.setViewportView(txtAreaDescripcion);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 230, -1));
-        jPanel2.add(cbIntensidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 230, -1));
+        jPanel2.add(jScrollPane1);
+        
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel4.setText("Intensidad:");
+        jPanel2.add(jLabel4);
+        
+        jLabel4.setLabelFor(cbIntensidad);
+        jPanel2.add(cbIntensidad);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel5.setText("Areas del Cuerpo:");
+        jPanel2.add(jLabel5);
 
         cbAreaDelCuerp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(cbAreaDelCuerp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 230, -1));
+        cbAreaDelCuerp.addActionListener(listener);
+        jPanel2.add(cbAreaDelCuerp);
 
+        JLabel temp = new JLabel("", JLabel.TRAILING);
+        jPanel2.add(temp);
+       
+        temp.setLabelFor(AreaADC);
+        jPanel2.add(AreaADC);
+        
         jLabel6.setText("Calorias:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 80, -1));
-        jPanel2.add(txtCalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 100, -1));
-        jPanel2.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
-
-        txtAreaADC.setColumns(20);
-        txtAreaADC.setRows(5);
-        jScrollPane3.setViewportView(txtAreaADC);
-
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 230, -1));
-
+        jPanel2.add(jLabel6);
+        
+        jLabel6.setLabelFor(txtCalorias);
+        jPanel2.add(txtCalorias);
+        
+        SpringUtilities.makeCompactGrid(jPanel2,
+                                        7, 2, //Filas, columnas
+                                        6, 6, //initX, initY
+                                        6, 6); //xPad, yPad
+        jScrollPane2.setSize(jPanel2.getLayout().preferredLayoutSize(jPanel2));
         jScrollPane2.setViewportView(jPanel2);
 
-        add(jScrollPane2);
-
+        add(jScrollPane2, BorderLayout.CENTER);
+        
     }// </editor-fold>                        
 
     // Variables declaration - do not modify                     
@@ -106,13 +136,11 @@ public class EjercicioPanel extends JPanel implements Verificar, ConnectDbInterf
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblId;
-    private javax.swing.JTextArea txtAreaADC;
+    private javax.swing.JPanel AreaADC;
     private javax.swing.JTextArea txtAreaDescripcion;
     private javax.swing.JTextField txtCalorias;
     private javax.swing.JTextField txtNombre;
@@ -120,19 +148,46 @@ public class EjercicioPanel extends JPanel implements Verificar, ConnectDbInterf
 
     @Override
     public boolean verificarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(!datosVacios()){
+            if(Validate.isOnlyNum(txtCalorias.getText()))
+                    return true;
+            else Messages.errorMessage("Ingrese solo numeros");
+            
+        }
+        return false;
     }
 
     @Override
     public boolean datosVacios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(txtNombre.getText().isEmpty())
+            return true;
+        else Messages.errorMessage("Ingrese un nombre para el ejercicio");
+        return false;
     }
 
     @Override
     public boolean escribirDatosDB() {
-        Messages.errorMessage("Se escribieron los datos");
+        ArrayList<String> nameLabelsPanel = listener.getNameLabelsPanel();
+        for (String txt:nameLabelsPanel)
+            System.out.println(txt);
         return false;
     }
+
+    @Override
+    public boolean verificarEscrituraDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean verificarLecturaDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean leerDatosDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
 }

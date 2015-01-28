@@ -46,10 +46,6 @@ public class InternalFrameList implements InternalFrameListener{
             case 2:{
             }
         }
-        
-        
-        
-        
     }
 
     @Override

@@ -6,6 +6,7 @@ package Clases.InterfaceMethods.Admin;
 
 import Clases.InterfaceMethods.InternalFrameList;
 import InterfacesAdministrador.vtnNueva;
+import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
@@ -29,20 +30,33 @@ public class EjerciciosCallback {
         vtn.addInternalFrameListener(listener);
         
         vtn.setDefaultCloseOperation(JInternalFrame.DO_NOTHING_ON_CLOSE);
-        vtn.setSize(300, 300);
+        Dimension d = panel.getLayout().preferredLayoutSize(panel);
+        vtn.setSize(d);
         vtn.setLocation(xOffset*frameCountNuevo, yOffset*frameCountNuevo);
         vtn.setVisible(true);
         ventana.add(vtn);
         try{
             vtn.setSelected(true);
         }catch (java.beans.PropertyVetoException e){}
-        
-        
     }
     
     public void mnuBtnBusEjerciciosActionPerformed(java.awt.event.ActionEvent evt, JDesktopPane ventana) {                                                    
         // TODO add your handling code here:
+        EjercicioBusqueda buspanel = new EjercicioBusqueda();
+        InternalFrameList listener = new InternalFrameList(buspanel);
+        vtnNueva vtn = new vtnNueva(buspanel, "Busqueda de ejercicios" + (++frameCountBusqueda));
         
+        vtn.addInternalFrameListener(listener);
+        
+        vtn.setDefaultCloseOperation(JInternalFrame.DO_NOTHING_ON_CLOSE);
+        Dimension d = buspanel.getLayout().preferredLayoutSize(buspanel);
+        vtn.setSize(d);
+        vtn.setLocation(xOffset*frameCountNuevo, yOffset*frameCountNuevo);
+        vtn.setVisible(true);
+        ventana.add(vtn);
+        try{
+            vtn.setSelected(true);
+        }catch (java.beans.PropertyVetoException e){}
     }
     
     public void mnuBtnMostrarEjerActionPerformed(java.awt.event.ActionEvent evt, JDesktopPane ventana) {                                                  
