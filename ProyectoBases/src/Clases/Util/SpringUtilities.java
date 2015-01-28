@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.
  *
@@ -29,6 +30,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
+package Clases.Util;
 
 import javax.swing.*;
 import javax.swing.SpringLayout;
