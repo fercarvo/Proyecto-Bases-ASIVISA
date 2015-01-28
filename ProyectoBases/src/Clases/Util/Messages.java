@@ -39,4 +39,7 @@ public class Messages {
         return JOptionPane.showOptionDialog(parent, question, null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttonsName, buttonsName[2]);
     }
     
+    public static String inputMessage(String question){
+        return JOptionPane.showInputDialog(question);
+    }
 }
