@@ -9,6 +9,8 @@ package Clases.InterfaceMethods;
  * @author Kevin
  */
 public interface ConnectDbInterface {
-    
+    public boolean verificarEscrituraDB();
     public boolean escribirDatosDB();
+    public boolean verificarLecturaDB();
+    public boolean leerDatosDB();
 }
