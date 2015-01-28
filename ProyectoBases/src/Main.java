@@ -1,9 +1,12 @@
 
 import Clases.Util.ConectorBDD;
+import Clases.Util.LookAndFeelClass;
 import InterfacesAdministrador.VtnAreaDelCuerpo;
 import InterfacesAdministrador.VtnComida;
+import InterfacesAdministrador.vtnPrincipalAdm;
 import InterfacesUsuario.*;
 import java.sql.SQLException;
+import javax.swing.LookAndFeel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -38,6 +41,9 @@ public class Main {
         
         adc.setVisible(false);
         VtnComida com = new VtnComida(conector, null);
-        com.setVisible(true);
+        com.setVisible(false);
+        LookAndFeelClass.lookAndFeelNimbus();
+        vtnPrincipalAdm adm = new vtnPrincipalAdm();
+        adm.setVisible(true);
     }
 }

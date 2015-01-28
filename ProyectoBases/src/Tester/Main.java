@@ -2,6 +2,7 @@ package Tester;
 
 
 import Clases.Util.ConectorBDD;
+import InterfacesAdministrador.vtnPrincipalAdm;
 import InterfacesUsuario.*;
 
 /*
@@ -27,6 +28,8 @@ public class Main {
         vtnAgregarComida vtn2 = new vtnAgregarComida();
         vtn2.setVisible(false);
         vtnCrearUsuario user = new vtnCrearUsuario(vtn2);
-        user.setVisible(true);
+        user.setVisible(false);
+        vtnPrincipalAdm adm = new vtnPrincipalAdm();
+        adm.setVisible(true);
     }
 }

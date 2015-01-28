@@ -5,6 +5,7 @@
 package InterfacesAdministrador;
 
 import Clases.InterfaceMethods.Admin.EjerciciosCallback;
+import Clases.InterfaceMethods.Admin.UsuariosCallback;
 import Clases.Util.ConectorBDD;
 import Imagenes.imageResource;
 import Imagenes.imageSize;
@@ -107,6 +108,11 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         btnToolAddUsuario.setFocusable(false);
         btnToolAddUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnToolAddUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnToolAddUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToolAddUsuarioActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnToolAddUsuario);
 
         btnToolAddEjercicio.setIcon(imgEjercicio);
@@ -431,6 +437,8 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
     private void mnuBtnNuevUsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevUsuaActionPerformed
         // TODO add your handling code here:
+        UsuariosCallback uscb = new UsuariosCallback();
+        uscb.mnuBtnNuevUsuaActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_mnuBtnNuevUsuaActionPerformed
 
     private void mnuBtnNuevComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevComActionPerformed
@@ -463,6 +471,8 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
     private void mnuBtnBusPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusPersonasActionPerformed
         // TODO add your handling code here:
+        UsuariosCallback uscb = new UsuariosCallback();
+        uscb.mnuBtnBusPersonasActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_mnuBtnBusPersonasActionPerformed
 
     private void mnuBtnBusEjerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnBusEjerciciosActionPerformed
@@ -485,6 +495,8 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
     private void mnuBtnMostrarPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarPerActionPerformed
         // TODO add your handling code here:
+        UsuariosCallback uscb = new UsuariosCallback();
+        uscb.mnuBtnMostrarPerActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_mnuBtnMostrarPerActionPerformed
 
     private void mnuBtnMostrarEjerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnMostrarEjerActionPerformed
@@ -510,6 +522,12 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         EjerciciosCallback ejcb = new EjerciciosCallback();
         ejcb.mnuBtnNuevEjerActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_btnToolAddEjercicioActionPerformed
+
+    private void btnToolAddUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToolAddUsuarioActionPerformed
+        // TODO add your handling code here:
+        UsuariosCallback uscb = new UsuariosCallback();
+        uscb.mnuBtnNuevUsuaActionPerformed(evt, jDesktopPane1);
+    }//GEN-LAST:event_btnToolAddUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
