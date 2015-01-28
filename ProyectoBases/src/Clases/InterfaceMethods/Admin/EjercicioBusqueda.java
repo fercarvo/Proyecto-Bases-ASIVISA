@@ -55,9 +55,18 @@ public class EjercicioBusqueda extends vtnDatosTabla implements ConnectDbInterfa
     public void actionPerformed(ActionEvent e) {
         String actionComand = e.getActionCommand();
         switch(actionComand){
-            case "O":{
+            case "Opcion1":{
                 
             }break;
+            case "Opcion2":{
+                
+            }break;
+            case "Opcion3":{
+                
+            }break;
+            case "Opcion4":{
+                
+            }break;    
         }
     }
 }
