@@ -4,7 +4,10 @@ package Clases.Util;
 import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 
@@ -21,8 +24,8 @@ public class ConectorBDD {
         url = "jdbc:mysql://localhost/BaseASIVISA"; 
         dbName = "BaseASIVISA";
         driver = "com.mysql.jdbc.Driver";
-        userName = "root"; 
-        password = "1991";
+        userName = "ASIVISA"; 
+        password = "asivisa";
         con = null;
         st = null;
     }
@@ -93,4 +96,21 @@ public class ConectorBDD {
         this.st = st;
     }
    
+    public void listaTablas() throws SQLException{
+        ArrayList<String> tablas= new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement("show tables");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                tablas.add(rs.getString(1));
+            }
+            System.out.println("Se encontraron "+ tablas.size()+ " tablas");
+            for (String tabla : tablas) {
+                System.out.println(tabla);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al listar las tablas");
+            throw e;
+        }
+    }
 }
