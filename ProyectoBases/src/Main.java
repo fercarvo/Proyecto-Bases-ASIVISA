@@ -28,6 +28,7 @@ public class Main {
         ConectorBDD conector = new ConectorBDD();
         try {
             conector.conectar();
+            conector.listaTablas();
         } catch (SQLException ex) {
             System.out.println("Error:\n" + ex.getMessage());
         }        
