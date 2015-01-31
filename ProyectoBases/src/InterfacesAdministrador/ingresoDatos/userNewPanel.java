@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package InterfacesAdministrador;
+package InterfacesAdministrador.ingresoDatos;
 
 import Clases.InterfaceMethods.Admin.FacturaCallback;
 import Clases.InterfaceMethods.Admin.MembresiaCallback;
 import Clases.InterfaceMethods.ConnectDbInterface;
+import Clases.InterfaceMethods.Verificar;
 import Clases.Util.SpringUtilities;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +19,7 @@ import javax.swing.SpringLayout;
  *
  * @author Clases
  */
-public class userNewPanel extends JPanel implements ActionListener, ConnectDbInterface{
+public class userNewPanel extends JPanel implements ActionListener, ConnectDbInterface, Verificar{
     private JDesktopPane ventana;
     
     public userNewPanel(JDesktopPane vtn) 
@@ -262,6 +263,16 @@ public class userNewPanel extends JPanel implements ActionListener, ConnectDbInt
 
     @Override
     public boolean leerDatosDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean verificarDatos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean datosVacios() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

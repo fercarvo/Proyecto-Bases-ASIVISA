@@ -6,7 +6,7 @@
 
 package InterfacesAdministrador;
 
-import Clases.Util.ConectorBDD;
+import Clases.InterfaceMethods.ConectorBDD;
 import Tablas.AreaDelCuerpo;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -134,7 +134,7 @@ public class VtnAreaDelCuerpo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 74, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar)))

@@ -1,5 +1,5 @@
 
-import Clases.Util.ConectorBDD;
+import Clases.InterfaceMethods.ConectorBDD;
 import Clases.Util.LookAndFeelClass;
 import InterfacesAdministrador.VtnAreaDelCuerpo;
 import InterfacesAdministrador.VtnComida;

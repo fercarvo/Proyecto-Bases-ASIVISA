@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package InterfacesAdministrador.busquedas;
+package InterfacesAdministrador.reportes;
 
 /**
  *
  * @author Fernando
  */
-public class PnlBusquedaRutina extends javax.swing.JPanel {
+public class RutinaReporteBusqueda extends javax.swing.JPanel {
 
     /**
-     * Creates new form PnlBusquedaRutina
+     * Creates new form RutinaReporteBusqueda
      */
-    public PnlBusquedaRutina() {
+    public RutinaReporteBusqueda() {
         initComponents();
     }
 

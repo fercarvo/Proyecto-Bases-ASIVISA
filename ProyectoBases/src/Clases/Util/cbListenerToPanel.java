@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.SpringLayout;
 
 /**
  *
@@ -17,10 +18,11 @@ import javax.swing.JPanel;
 public class cbListenerToPanel implements ActionListener{
 
     private JPanel panel;
+    private int filas;
     
     public cbListenerToPanel(JPanel panel) {
         this.panel = panel;
-        
+        panel.setLayout(new SpringLayout());
     }
     
     @Override
@@ -33,6 +35,11 @@ public class cbListenerToPanel implements ActionListener{
                 String text = (String) box.getModel().getElementAt(index);
                 ClosableLabel clabel = new ClosableLabel(text);
                 panel.add(clabel);
+                
+                if(panel.getComponentCount()%2 == 0){
+                    ++filas;
+                    SpringUtilities.makeCompactGrid(panel, filas, 2, 6, 6, 6, 6);
+                }
                 panel.revalidate();
                 panel.repaint();    
             }break;

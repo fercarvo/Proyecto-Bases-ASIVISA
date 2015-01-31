@@ -4,9 +4,12 @@
  */
 package InterfacesAdministrador;
 
+import Clases.InterfaceMethods.Admin.AreadelCuerpoCallback;
+import Clases.InterfaceMethods.Admin.ComidasCallback;
 import Clases.InterfaceMethods.Admin.EjerciciosCallback;
+import Clases.InterfaceMethods.Admin.MembresiaCallback;
 import Clases.InterfaceMethods.Admin.UsuariosCallback;
-import Clases.Util.ConectorBDD;
+import Clases.InterfaceMethods.ConectorBDD;
 import Imagenes.imageResource;
 import Imagenes.imageSize;
 
@@ -92,8 +95,14 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         mnuBtnMostrarCom = new javax.swing.JMenuItem();
         mnuBtnMostrarDiet = new javax.swing.JMenuItem();
         mnuReportes = new javax.swing.JMenu();
-        mnBtnMenbresias = new javax.swing.JMenuItem();
-        mnuBtnEstadisticas = new javax.swing.JMenuItem();
+        mnuRepMemb = new javax.swing.JMenu();
+        mnuMembBtnEstado = new javax.swing.JMenuItem();
+        mnuBtnMemUser = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        mnuRepEstadist = new javax.swing.JMenu();
+        mnuEstatBtnEjer = new javax.swing.JMenuItem();
+        mnuEstatBtnRut = new javax.swing.JMenuItem();
         mnuAyuda = new javax.swing.JMenu();
         mnuBtnAyuda = new javax.swing.JMenuItem();
         mnuBtnAcercade = new javax.swing.JMenuItem();
@@ -249,6 +258,11 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         mnuBtnPreferencias.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         mnuBtnPreferencias.setIcon(imageResource.imageFromResourcesPng("settings56.png", "UIdesign", imageSize.icon_menu));
         mnuBtnPreferencias.setText("Preferencias");
+        mnuBtnPreferencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnPreferenciasActionPerformed(evt);
+            }
+        });
         mnuEditar.add(mnuBtnPreferencias);
 
         jMenuBar1.add(mnuEditar);
@@ -383,13 +397,38 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
         mnuReportes.setText("Reportes");
 
-        mnBtnMenbresias.setIcon(imageResource.imageFromResourcesPng("money132.png", "Cobros", imageSize.icon_menu));
-        mnBtnMenbresias.setText("Membresias");
-        mnuReportes.add(mnBtnMenbresias);
+        mnuRepMemb.setIcon(imageResource.imageFromResourcesPng("money132.png", "Cobros", imageSize.icon_menu));
+        mnuRepMemb.setText("Membresias");
 
-        mnuBtnEstadisticas.setIcon(imageResource.imageFromResourcesPng("chart47.png", "UIdesign", imageSize.icon_menu));
-        mnuBtnEstadisticas.setText("Estadisticas");
-        mnuReportes.add(mnuBtnEstadisticas);
+        mnuMembBtnEstado.setText("Por estado");
+        mnuMembBtnEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuMembBtnEstadoActionPerformed(evt);
+            }
+        });
+        mnuRepMemb.add(mnuMembBtnEstado);
+
+        mnuBtnMemUser.setText("Por Usuario");
+        mnuRepMemb.add(mnuBtnMemUser);
+
+        jMenuItem2.setText("jMenuItem2");
+        mnuRepMemb.add(jMenuItem2);
+
+        jMenuItem3.setText("jMenuItem3");
+        mnuRepMemb.add(jMenuItem3);
+
+        mnuReportes.add(mnuRepMemb);
+
+        mnuRepEstadist.setIcon(imageResource.imageFromResourcesPng("chart47.png", "UIdesign", imageSize.icon_menu));
+        mnuRepEstadist.setText("Estadisticas");
+
+        mnuEstatBtnEjer.setText("Por Ejercicio");
+        mnuRepEstadist.add(mnuEstatBtnEjer);
+
+        mnuEstatBtnRut.setText("Por Rutina");
+        mnuRepEstadist.add(mnuEstatBtnRut);
+
+        mnuReportes.add(mnuRepEstadist);
 
         jMenuBar1.add(mnuReportes);
 
@@ -397,10 +436,20 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
         mnuBtnAyuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
         mnuBtnAyuda.setText("Contenidos de Ayuda");
+        mnuBtnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnAyudaActionPerformed(evt);
+            }
+        });
         mnuAyuda.add(mnuBtnAyuda);
 
         mnuBtnAcercade.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         mnuBtnAcercade.setText("Acerca de");
+        mnuBtnAcercade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBtnAcercadeActionPerformed(evt);
+            }
+        });
         mnuAyuda.add(mnuBtnAcercade);
 
         jMenuBar1.add(mnuAyuda);
@@ -426,7 +475,8 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnToolAgregarADCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToolAgregarADCActionPerformed
-        VtnAreaDelCuerpo vtnADC = new VtnAreaDelCuerpo(null, con);
+        AreadelCuerpoCallback adcCb = new AreadelCuerpoCallback();
+        adcCb.btnToolAgregarADCActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_btnToolAgregarADCActionPerformed
 
     private void mnuBtnNuevEjerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevEjerActionPerformed
@@ -443,6 +493,8 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
 
     private void mnuBtnNuevComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevComActionPerformed
         // TODO add your handling code here:
+        ComidasCallback comcb = new ComidasCallback();
+        comcb.mnuBtnNuevComActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_mnuBtnNuevComActionPerformed
 
     private void mnuBtnNuevDietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnNuevDietActionPerformed
@@ -529,6 +581,24 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
         uscb.mnuBtnNuevUsuaActionPerformed(evt, jDesktopPane1);
     }//GEN-LAST:event_btnToolAddUsuarioActionPerformed
 
+    private void mnuMembBtnEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMembBtnEstadoActionPerformed
+        // TODO add your handling code here:
+        MembresiaCallback memcb = new MembresiaCallback();
+        memcb.mnuMembBtnEstadoActionPerformed(evt, jDesktopPane1);
+    }//GEN-LAST:event_mnuMembBtnEstadoActionPerformed
+
+    private void mnuBtnPreferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnPreferenciasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnPreferenciasActionPerformed
+
+    private void mnuBtnAcercadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnAcercadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnAcercadeActionPerformed
+
+    private void mnuBtnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBtnAyudaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuBtnAyudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -573,12 +643,13 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JMenuItem mnBtnMenbresias;
     private javax.swing.JMenu mnuAbrir;
     private javax.swing.JMenu mnuArchivo;
     private javax.swing.JMenu mnuAyuda;
@@ -592,10 +663,10 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuBtnBusRutinas;
     private javax.swing.JMenuItem mnuBtnCheckConexion;
     private javax.swing.JMenuItem mnuBtnConectar;
-    private javax.swing.JMenuItem mnuBtnEstadisticas;
     private javax.swing.JMenuItem mnuBtnGuardar;
     private javax.swing.JMenuItem mnuBtnGuardarComo;
     private javax.swing.JMenuItem mnuBtnGuardarTodo;
+    private javax.swing.JMenuItem mnuBtnMemUser;
     private javax.swing.JMenuItem mnuBtnMostrarCom;
     private javax.swing.JMenuItem mnuBtnMostrarDiet;
     private javax.swing.JMenuItem mnuBtnMostrarEjer;
@@ -613,8 +684,13 @@ public class vtnPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JMenu mnuBusqueda;
     private javax.swing.JMenu mnuConectar;
     private javax.swing.JMenu mnuEditar;
+    private javax.swing.JMenuItem mnuEstatBtnEjer;
+    private javax.swing.JMenuItem mnuEstatBtnRut;
+    private javax.swing.JMenuItem mnuMembBtnEstado;
     private javax.swing.JMenu mnuMostrar;
     private javax.swing.JMenu mnuNuevo;
+    private javax.swing.JMenu mnuRepEstadist;
+    private javax.swing.JMenu mnuRepMemb;
     private javax.swing.JMenu mnuReportes;
     private javax.swing.JMenuItem mnubtnUndo;
     // End of variables declaration//GEN-END:variables

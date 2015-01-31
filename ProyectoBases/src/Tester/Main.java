@@ -1,7 +1,7 @@
 package Tester;
 
 
-import Clases.Util.ConectorBDD;
+import Clases.InterfaceMethods.ConectorBDD;
 import InterfacesAdministrador.vtnPrincipalAdm;
 import InterfacesUsuario.*;
 

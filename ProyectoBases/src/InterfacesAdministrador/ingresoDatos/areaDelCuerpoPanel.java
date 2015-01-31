@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package InterfacesAdministrador;
+package InterfacesAdministrador.ingresoDatos;
 
 import Clases.InterfaceMethods.ConnectDbInterface;
 import Clases.InterfaceMethods.InteractDBInterface;
 import Clases.InterfaceMethods.Verificar;
+import Clases.Util.cbListenerToPanel;
 
 /**
  *
@@ -20,6 +21,7 @@ public class areaDelCuerpoPanel extends javax.swing.JPanel implements Verificar,
      */
     public areaDelCuerpoPanel() {
         initComponents();
+        cbSeccion.addActionListener(new cbListenerToPanel(panelSecciones));
     }
 
     /**
@@ -38,7 +40,8 @@ public class areaDelCuerpoPanel extends javax.swing.JPanel implements Verificar,
         btnCancelar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cbSeccion = new javax.swing.JComboBox();
+        panelSecciones = new javax.swing.JPanel();
 
         txtId.setEditable(false);
         txtId.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -56,10 +59,21 @@ public class areaDelCuerpoPanel extends javax.swing.JPanel implements Verificar,
 
         btnAceptar.setText("Agregar otra");
 
-        jLabel3.setLabelFor(jComboBox1);
+        jLabel3.setLabelFor(cbSeccion);
         jLabel3.setText("<html>Escoja a que seccion del cuerpo pertenece</html>");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Brazos", "Torzo", "Piernas" }));
+        cbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguno", "Brazos", "Torzo", "Piernas" }));
+
+        javax.swing.GroupLayout panelSeccionesLayout = new javax.swing.GroupLayout(panelSecciones);
+        panelSecciones.setLayout(panelSeccionesLayout);
+        panelSeccionesLayout.setHorizontalGroup(
+            panelSeccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelSeccionesLayout.setVerticalGroup(
+            panelSeccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,16 +88,17 @@ public class areaDelCuerpoPanel extends javax.swing.JPanel implements Verificar,
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 81, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                                    .addComponent(cbSeccion, 0, 230, Short.MAX_VALUE)
+                                    .addComponent(panelSecciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -105,8 +120,10 @@ public class areaDelCuerpoPanel extends javax.swing.JPanel implements Verificar,
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                    .addComponent(cbSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(panelSecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar)))
@@ -116,10 +133,11 @@ public class areaDelCuerpoPanel extends javax.swing.JPanel implements Verificar,
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cbSeccion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel panelSecciones;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

@@ -5,11 +5,9 @@
 package InterfacesUsuario;
 import Clases.InterfaceMethods.Validate;
 import Clases.Util.Messages;
+import Clases.Util.cbListenerToPanel;
 import java.awt.CardLayout;
-import java.awt.event.ItemEvent;
 import java.awt.event.*;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 /**
  *
  * @author Clases
@@ -21,6 +19,10 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
      */
     public vtnAgregarComida() {
         initComponents();
+        
+        cbCarbohidratos.addActionListener(new cbListenerToPanel(panelCarb));
+        cbGrasas.addActionListener(new cbListenerToPanel(panelFat));
+        cbProteinas.addActionListener(new cbListenerToPanel(panelProtein));
         
         btnSi.addActionListener(this);
         btnSi.setActionCommand("Si");
@@ -67,22 +69,22 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
         cbProteinas = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
         cbGrasas = new javax.swing.JComboBox();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        panelCarb = new javax.swing.JPanel();
+        panelProtein = new javax.swing.JPanel();
+        panelFat = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setLabelFor(txtCalorias);
         jLabel4.setText("Calorias");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setLabelFor(txtVitaminas);
         jLabel5.setText("Vitaminas");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setLabelFor(txtProteinas);
         jLabel6.setText("Proteinas");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -104,7 +106,7 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
                         .addComponent(jLabel4)
                         .addGap(22, 22, 22)
                         .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,16 +123,16 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtProteinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Ingrese una comida");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setLabelFor(txtNombre);
         jLabel2.setText("Nombre");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -148,31 +150,22 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
         jLabel7.setText("Escoja los alimentos que conforman su comida");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setLabelFor(cbCarbohidratos);
         jLabel8.setText("Carbohidratos:");
 
         cbCarbohidratos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setLabelFor(cbProteinas);
         jLabel9.setText("Proteinas");
 
         cbProteinas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setLabelFor(cbGrasas);
         jLabel10.setText("Grasas");
 
         cbGrasas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane4.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -198,10 +191,10 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
                                 .addComponent(cbGrasas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane3))))
-                .addGap(0, 18, Short.MAX_VALUE))
+                            .addComponent(panelProtein, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelCarb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelFat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,20 +206,20 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbCarbohidratos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelCarb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbProteinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9)))
+                        .addComponent(jLabel9))
+                    .addComponent(panelProtein, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbGrasas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel10))
+                    .addComponent(panelFat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel3);
@@ -237,11 +230,11 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(292, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         btnCancelar.setText("Cancelar");
@@ -303,7 +296,7 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
                     .addComponent(btnNo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAgregar)))
@@ -383,12 +376,9 @@ public class vtnAgregarComida extends javax.swing.JFrame implements ActionListen
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JPanel panelCarb;
+    private javax.swing.JPanel panelFat;
+    private javax.swing.JPanel panelProtein;
     private javax.swing.JTextField txtCalorias;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtProteinas;
