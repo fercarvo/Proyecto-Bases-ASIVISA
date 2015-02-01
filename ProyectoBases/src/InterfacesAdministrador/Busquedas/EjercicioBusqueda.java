@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases.InterfaceMethods.Admin;
+package InterfacesAdministrador.Busquedas;
 
 import Clases.InterfaceMethods.ConnectDbInterface;
 import Clases.InterfaceMethods.InteractDBInterface;
@@ -12,8 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.StringTokenizer;
 import javax.swing.JButton;
-import javax.swing.JRadioButton;
-import javax.swing.JToggleButton;
 
 /**
  *

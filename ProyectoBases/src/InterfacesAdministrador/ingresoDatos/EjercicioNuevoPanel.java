@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases.InterfaceMethods.Admin;
+package InterfacesAdministrador.ingresoDatos;
 
 import Clases.InterfaceMethods.ConnectDbInterface;
 import Clases.InterfaceMethods.Verificar;
@@ -17,17 +17,18 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.SpringLayout;
 
 /**
  *
  * @author Clases
  */
-public class EjercicioPanel extends JPanel implements Verificar, ConnectDbInterface{
+public class EjercicioNuevoPanel extends JPanel implements Verificar, ConnectDbInterface{
 
     private cbListenerToPanel listener;
     
-    public EjercicioPanel() {
+    public EjercicioNuevoPanel() {
         
         initComponents();
         
@@ -121,6 +122,8 @@ public class EjercicioPanel extends JPanel implements Verificar, ConnectDbInterf
                                         6, 6, //initX, initY
                                         6, 6); //xPad, yPad
         jScrollPane2.setSize(jPanel2.getLayout().preferredLayoutSize(jPanel2));
+        
+        jScrollPane2.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setViewportView(jPanel2);
 
         add(jScrollPane2, BorderLayout.CENTER);

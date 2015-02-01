@@ -6,7 +6,7 @@
 
 package InterfacesAdministrador;
 
-import Clases.Util.ConectorBDD;
+import Clases.InterfaceMethods.ConectorBDD;
 import Tablas.Comida;
 import javax.swing.JFormattedTextField;
 import javax.swing.event.DocumentEvent;

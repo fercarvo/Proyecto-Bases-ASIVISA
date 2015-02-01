@@ -1,130 +1,145 @@
-﻿create database BaseASIVISA;
-use BaseASIVISA;
+CREATE database BaseASIVISA;
+USE BaseASIVISA;
 
-create table Ejercicio(
-	idEjercicio int auto_increment not null,
-	nombre varchar (20),
-	descripcion varchar (100),
-	intensidad varchar (8),
-	calorias int,
-	primary key (idEjercicio)
+CREATE TABLE Ejercicio(
+	idEjercicio INT NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR (20) NOT NULL,
+	descripcion VARCHAR (100) NOT NULL,
+	intensidad VARCHAR (8) NOT NULL,
+	calorias INT,
+	PRIMARY KEY (idEjercicio)
 );
 
-create table Rutina(
-	idRutina int not null,
-	fechaInicio date,
-	descripcion varchar (50),
-	primary key (idRutina)
+CREATE TABLE Rutina(
+	idRutina INT NOT NULL AUTO_INCREMENT,
+	fechaInicio DATE,
+	descripcion VARCHAR (50),
+	PRIMARY KEY (idRutina)
 );
 
-create table EjercicioRutina(
-	ejercicio int not null, 
-	rutina int,
-	foreign key (ejercicio)
-		references Ejercicio.idEjercicio,
-	foreign key (rutina)
-		references Rutina.idRutina
+CREATE TABLE EjercicioRutina(
+	ejercicio INT NOT NULL , 
+	rutina INT NOT NULL,
+	FOREIGN KEY (ejercicio)
+		REFERENCES Ejercicio(idEjercicio)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (rutina)
+		REFERENCES Rutina(idRutina)
+		ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-create table RutinaUsuario(
-	rutina int,
-	usuario int,
-	foreign key (usuario)
-		references Usuario.idUsuario,
-	foreign key (rutina)
-		references Rutina.idRutina
+CREATE TABLE AreaDelCuerpo(
+	idADC INT AUTO_INCREMENT,
+	nombre VARCHAR (20),
+	PRIMARY KEY (idADC)
 );
 
-create table EjercicioArea(
-	ejercicio int,
-	area varchar (8),
-	foreign key (ejercicio)
-		references Ejercicio.idEjercicio,
-	foreign key (area)
-		references AreaDelCuerpo.idADC
+CREATE TABLE EjercicioArea(
+	ejercicio INT,
+	area int,
+	FOREIGN KEY (ejercicio)
+		REFERENCES Ejercicio(idEjercicio)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (area)
+		REFERENCES AreaDelCuerpo(idADC)
+		ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-create table AreaDelCuerpo(
-	idADC int,
-	nombre varchar (20),
-	primary key (idADC)
-);
-
-create table Usuario(
-	idUsuario int,
-	nombre varchar (39),
-	email varchar (30),
-	residencia varchar (30),
+CREATE TABLE Usuario(
+	idUsuario INT,
+	nombre VARCHAR (39),
+	username VARCHAR(20),
+	contrasena VARCHAR(20),
+	email VARCHAR (30),
+	residencia VARCHAR (30),
 	pesoInicial float,
 	estatura float,
 	perfilPublico boolean,
-	dificultadFísica varchar (30),
-	primary key (idUsuario)
+	dificultadFísica VARCHAR (30),
+	PRIMARY KEY (idUsuario)
 );
 
-create table UsuarioDieta(
-	dieta int,
-	usuario int,
-	foreign key (dieta)
-		references Dieta.idDieta,
-	foreign key (usuario)
-		references Usuario.idUsuario
-);
-
-create table Comida(
-	idComida int,
-	calorias int,
-	nombre varchar (20),
-	primary key (idComida)
-);
-
-create table ComidaDieta(
-	comida int,
-	dieta int,
-	foreign key (comida)
-		references Comida.idComida,
-	foreign key (dieta)
-		references Dieta.idDieta
-);
-
-create table Dieta(
-	ingestaCalorica int,
-	idDieta int,
+CREATE TABLE Dieta(
+	idDieta INT AUTO_INCREMENT,
+	ingestaCalorica INT,
 	horaDia time,
-	primary key (idDieta)
+	PRIMARY KEY (idDieta)
 );
 
-create table Pago(
-	idPago varchar(8),
-	fecha date,
-	factura int,
-	descripcion varchar (39),
-	monto decimal,
-	primary key (idPago),
-	foreign key (factura)
-		references Factura.idFactura
+CREATE TABLE RutinaUsuario(
+	rutina INT,
+	usuario INT,
+	FOREIGN KEY (usuario)
+		REFERENCES Usuario(idUsuario)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (rutina)
+		REFERENCES Rutina(idRutina)
+		ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-create table Factura(
-	idFactura int,
-	fecha date,
-	ciudad varchar (10),
+CREATE TABLE UsuarioDieta(
+	dieta INT,
+	usuario INT,
+	FOREIGN KEY (dieta)
+		REFERENCES Dieta(idDieta)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (usuario)
+		REFERENCES Usuario(idUsuario)
+		ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE Comida(
+	idComida INT,
+	calorias INT,
+	nombre VARCHAR (20),
+	PRIMARY KEY (idComida)
+);
+
+CREATE TABLE ComidaDieta(
+	comida INT,
+	dieta INT,
+	FOREIGN KEY (comida)
+		REFERENCES Comida(idComida)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (dieta)
+		REFERENCES Dieta(idDieta)
+		ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE Factura(
+	idFactura INT,
+	fecha DATE,
+	ciudad VARCHAR (10),
 	monto float,
-	usuario int,
-	primary key (idFactura)
+	usuario INT,
+	PRIMARY KEY (idFactura)
 );
 
-create table Membresia(
-	idMembresia int,
-	usuario int,
+CREATE TABLE Pago (
+    idPago int AUTO_INCREMENT,
+    fecha DATE,
+    factura INT,
+    descripcion VARCHAR(39),
+    monto decimal,
+    PRIMARY KEY (idPago),
+    FOREIGN KEY (factura)
+        REFERENCES Factura (idFactura)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE Membresia(
+	idMembresia INT AUTO_INCREMENT,
+	usuario INT,
 	tipoMembresia char(8),
 	costoMembresia decimal,
-	fechaInicioMembresia date,
-	fechaFinMembresia date,
-	primary key (idMembresia),
-	foreign key (usuario)
-		references Usuario.idUsuario
+	fechaInicioMembresia DATE,
+	fechaFinMembresia DATE,
+	PRIMARY KEY (idMembresia),
+	FOREIGN KEY (usuario)
+		REFERENCES Usuario(idUsuario)
+		ON UPDATE CASCADE ON DELETE CASCADE
 );
+
 
 
 #..........................................................#
@@ -150,3 +165,8 @@ BEGIN
 	VALUES (nombre, calorias);
 END //
 DELIMITER ;
+
+
+CREATE USER ASIVISA IDENTIFIED BY 'asivisa';
+GRANT ALL ON BaseASIVISA.* to ASIVISA;
+

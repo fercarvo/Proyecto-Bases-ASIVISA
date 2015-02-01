@@ -42,18 +42,15 @@ public final class imageResource extends ImageIcon{
             setImage(img);
     }
     
-    public static final ImageIcon imageFromResourcesPng(String nombreRecurso, String Paquete, int tipo){
+    public imageResource(String nombreRecurso, String tipoArchivo, String Paquete, Dimension d){
         String path = null;
-        if(Paquete != null && nombreRecurso != null)
-            path = "/Imagenes/png/" + Paquete + "/" + nombreRecurso;
-        Dimension d = imageSize.getDimension(tipo);
-        return new ImageIcon(obtenerImagen(path, d));
-        
+        if(Paquete != null || nombreRecurso != null)
+            path = "/Imagenes/" + tipoArchivo + "/" + Paquete + "/" + nombreRecurso;
+        Image img = obtenerImagen(getClass().getResource(path), d); 
+        if(img != null)
+            setImage(img);
     }
-    /*
-     * Este metodo permite lo mismo que imagefromresourcespng con la diferencia que este permite la eleccion
-     * de cualquier paquete
-     */
+    
     public imageResource(String nombreRecurso, String tipoArchivo, String Paquete, int tipo){
         tamano = new imageSize();
         String path = null;
@@ -62,6 +59,24 @@ public final class imageResource extends ImageIcon{
         Image img = obtenerImagen(getClass().getResource(path), tipo); 
         if(img != null)
             setImage(img);
+    }
+    public imageResource(String nombreRecurso, String PaquetePng, Dimension d){
+        tamano = new imageSize();
+        String path = null;
+        if(PaquetePng != null && nombreRecurso != null)
+            path = "/Imagenes/png/" + PaquetePng + "/" + nombreRecurso;
+        Image img = obtenerImagen(getClass().getResource(path), d); 
+        if(img != null)
+            setImage(img);
+    }
+    
+    public static ImageIcon imageFromResourcesPng(String nombreRecurso, String Paquete, int tipo){
+        String path = null;
+        if(Paquete != null && nombreRecurso != null)
+            path = "/Imagenes/png/" + Paquete + "/" + nombreRecurso;
+        Dimension d = imageSize.getDimension(tipo);
+        return new ImageIcon(obtenerImagen(path, d));
+        
     }
     
     public static ImageIcon imageFromResources(String nombreRecurso, String tipoArchivo, String Paquete, int tipo){
@@ -73,6 +88,25 @@ public final class imageResource extends ImageIcon{
         
     }
     
+    public static ImageIcon imageFromResourcesPng(String nombreRecurso, String Paquete, Dimension d){
+        String path = null;
+        if(Paquete != null && nombreRecurso != null)
+            path = "/Imagenes/png/" + Paquete + "/" + nombreRecurso;
+        return new ImageIcon(obtenerImagen(path, d));
+        
+    }
+    /*
+     * Este metodo permite lo mismo que imagefromresourcespng con la diferencia que este permite la eleccion
+     * de cualquier paquete
+     */
+    
+    public static ImageIcon imageFromResources(String nombreRecurso, String tipoArchivo, String Paquete, Dimension d){
+        String path = null;
+        if(Paquete != null || nombreRecurso != null)
+            path = "/Imagenes/" + tipoArchivo + "/" + Paquete + "/" + nombreRecurso;
+        return new ImageIcon(obtenerImagen(path, d));
+        
+    }
     public imageResource() {
     }
     
@@ -124,7 +158,20 @@ public final class imageResource extends ImageIcon{
         }
         return null;
     }
-    
+    public Image obtenerImagen(URL path, Dimension d){
+        try {
+            BufferedImage image = ImageIO.read(path);
+            int ancho = (int) d.getWidth();
+            int alto = (int) d.getHeight();
+            image = cambiarTamano(image,ancho,alto);
+            return image;
+        } catch (IOException ex) {
+            Messages.errorMessage("No se encontro la imagen " + path.getFile());
+        } catch (Exception e){
+            Messages.errorMessage("No se encontro la imagen " + path.getFile());
+        }
+        return null;
+    }
     public static Image obtenerImagen(String path, Dimension d){
         URL pathFile = null;
         try {

@@ -5,6 +5,8 @@
 package InterfacesAdministrador;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 
 /**
@@ -13,6 +15,7 @@ import javax.swing.JPanel;
  */
 public class vtnNueva extends javax.swing.JInternalFrame {
 
+    private static final int xOffset = 30, yOffset = 30;
     /**
      * Creates new form vtnNueva
      */
@@ -28,6 +31,19 @@ public class vtnNueva extends javax.swing.JInternalFrame {
         add(contenido, BorderLayout.CENTER);
     }
 
+    /*
+     * 
+     */
+    public static vtnNueva createWindow(JPanel contenido, String title, int frameCount){
+        vtnNueva vtn = new vtnNueva(contenido, title + (frameCount));
+        vtn.setDefaultCloseOperation(JInternalFrame.DO_NOTHING_ON_CLOSE);
+        Dimension d = contenido.getLayout().preferredLayoutSize(contenido);
+        vtn.setSize(d);
+        vtn.setLocation(xOffset*frameCount, yOffset*frameCount);
+        vtn.setVisible(true);
+        
+        return vtn;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,4 +57,7 @@ public class vtnNueva extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    
+    
 }
+

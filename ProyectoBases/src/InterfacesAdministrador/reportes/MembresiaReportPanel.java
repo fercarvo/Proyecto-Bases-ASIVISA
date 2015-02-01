@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package InterfacesAdministrador.busquedas;
+package InterfacesAdministrador.reportes;
+
+import Clases.InterfaceMethods.ConnectDbInterface;
 
 /**
  *
  * @author Fernando
  */
-public class PnlBusquedaMembresia extends javax.swing.JPanel {
+public class MembresiaReportPanel extends javax.swing.JPanel implements ConnectDbInterface{
 
     /**
-     * Creates new form PnlBusquedaMembresia
+     * Creates new form MembresiaReportPanel
      */
-    public PnlBusquedaMembresia() {
+    public MembresiaReportPanel() {
         initComponents();
     }
 
@@ -148,4 +150,24 @@ public class PnlBusquedaMembresia extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public boolean verificarEscrituraDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean escribirDatosDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean verificarLecturaDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean leerDatosDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
