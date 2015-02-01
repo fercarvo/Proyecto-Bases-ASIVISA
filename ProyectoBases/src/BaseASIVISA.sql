@@ -125,3 +125,28 @@ create table Membresia(
 	foreign key (usuario)
 		references Usuario.idUsuario
 );
+
+
+#..........................................................#
+#TRIGGERS
+
+#..........................................................#
+#VISTAS
+
+#..........................................................#
+#PROCEDIMIENTOS DE CREACION
+DELIMITER //
+CREATE PROCEDURE crearUsuario(in nombre varchar(39), in email varchar(39), in residencia varchar (30), pesoInicial float)
+BEGIN
+	INSERT INTO Usuario(nombre, email, residencia, pesoInicial)
+	VALUES (nombre, email, residencia, pesoInicial);
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE crearComida(in nombre varchar(20), in calorias int)
+BEGIN
+	INSERT INTO Comida(nombre, calorias)
+	VALUES (nombre, calorias);
+END //
+DELIMITER ;
